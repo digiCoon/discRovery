@@ -1,0 +1,23 @@
+:root {
+    --font-body: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    --font-brand: 'Unbounded', system-ui, sans-serif;
+
+    /* Base tones */
+    --color-bg: #101019;
+    --color-surface: #161826;
+    --color-surface-2: #1e2031;
+    --color-border: #2a2d42;
+    --color-terminal: #0a0b12;
+
+    /* Text */
+    --color-text: #e4e4ee;
+    --color-text-muted: #9c9fb8;
+
+    /* Accents */
+    --color-green: #3fcf8e;
+    --color-blue: #4f9dff;
+    --color-red: #ff4d3d;
+
+    color-scheme: dark;
+}
