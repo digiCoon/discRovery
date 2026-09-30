@@ -17,3 +17,28 @@ code, pre, kbd, samp {
 .brand {
   font-family: var(--font-brand);
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-block: 3rem;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

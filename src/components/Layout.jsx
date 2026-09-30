@@ -8,7 +8,7 @@ export default function Layout() {
         <>
             <ScrollManager />
             <Header />
-            <main>
+            <main className="container">
                 <Outlet />
             </main>
             <Footer />
