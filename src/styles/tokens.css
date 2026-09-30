@@ -15,9 +15,12 @@
     --color-text-muted: #9c9fb8;
 
     /* Accents */
-    --color-green: #3fcf8e;
-    --color-blue: #4f9dff;
-    --color-red: #ff4d3d;
+    --color-green: #2AC71E;
+    --color-blue: #2D76FF;
+    --color-red: #FF2E2C;
+
+    /* Primary accent: used for actions, links, terminal prompt */
+    --color-accent: var(--color-blue);
 
     color-scheme: dark;
 }

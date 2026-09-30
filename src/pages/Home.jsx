@@ -1,3 +1,5 @@
+import Hero from '../components/Hero.jsx'
+
 export default function Home() {
-    return <h1>Startseite</h1>
+    return <Hero />
 }

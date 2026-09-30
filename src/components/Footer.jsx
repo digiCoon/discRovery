@@ -9,8 +9,7 @@ export default function Footer() {
             <div className="container site-footer__inner">
                 <p>© {year} DiscRovery</p>
                 <nav className="footer-nav" aria-label="Rechtliches">
-                    <Link to="/impressum">Impressum</Link>
-                    <Link to="/impressum#datenschutz">Datenschutz</Link>
+                    <Link to="/impressum">Impressum & Datenschutz</Link>
                 </nav>
             </div>
         </footer>

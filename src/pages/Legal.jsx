@@ -5,12 +5,12 @@ export default function Legal() {
 
             <section id="impressum">
                 <h2>Impressum</h2>
-                <p>Folgt nach Abstimmung mit damago.</p>
+                <p><a>Coming soon... maybe.</a></p>
             </section>
 
             <section id="datenschutz">
                 <h2>Datenschutz</h2>
-                <p>Folgt nach Abstimmung mit damago.</p>
+                <p>Folgt.</p>
             </section>
 
             <section id="medien">
