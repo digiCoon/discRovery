@@ -97,3 +97,24 @@ main {
   font-size: 0.875rem;
   text-decoration: none;
 }
+
+.page-head {
+  margin-bottom: 2.5rem;
+}
+
+.page-head h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.page-head__intro {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--color-text-muted);
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}

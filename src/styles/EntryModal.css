@@ -1,0 +1,97 @@
+.entry-modal {
+    width: min(100% - 2rem, 42rem);
+    max-height: min(85vh, 50rem);
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.entry-modal::backdrop {
+    background: rgb(5 5 10 / 0.7);
+    backdrop-filter: blur(2px);
+}
+
+.entry-modal__content {
+    padding: 1.5rem;
+}
+
+.entry-modal__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.entry-modal__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+.entry-modal__close {
+    padding: 0.25rem;
+    border: none;
+    background: none;
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.entry-modal__close:hover {
+    color: var(--color-text);
+}
+
+.entry-modal h2 {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+/* Styles for rendered Markdown */
+.prose > :first-child {
+    margin-top: 0;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+    margin: 0 0 1rem;
+}
+
+.prose h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.125rem;
+}
+
+.prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.prose code {
+    padding: 0.1em 0.35em;
+    border-radius: 0.25rem;
+    background: var(--color-surface-2);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+}
+
+.prose pre {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--color-terminal);
+}
+
+.prose pre code {
+    padding: 0;
+    background: none;
+}
