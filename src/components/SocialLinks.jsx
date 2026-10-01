@@ -12,8 +12,8 @@ export default function SocialLinks({ className = '' }) {
                         </a>
                     ) : (
                         <span className="social-links__placeholder" title={`${label} folgt`}>
-              <Icon aria-hidden="true" />
-            </span>
+                            <Icon aria-hidden="true" />
+                        </span>
                     )}
                 </li>
             ))}

@@ -14,13 +14,16 @@
     --color-text: #e4e4ee;
     --color-text-muted: #9c9fb8;
 
-    /* Accents */
-    --color-green: #2AC71E;
-    --color-blue: #2D76FF;
-    --color-red: #FF2E2C;
+    /* Brand colors, taken from the logo */
+    --color-green: #2ac71e;
+    --color-blue: #2d76ff;
+    --color-red: #ff2e2c;
 
-    /* Primary accent: used for actions, links, terminal prompt */
+    /* Interaction: buttons, hover, focus */
     --color-accent: var(--color-blue);
+
+    /* Current or active state: selected item, current page, status */
+    --color-active: var(--color-green);
 
     color-scheme: dark;
 }

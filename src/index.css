@@ -1,40 +1,39 @@
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-}
-
-a {
-  color: var(--color-text-muted);
-  transition: color 0.15s;
-}
-
-a:not(.button):hover {
-  color: var(--color-green);
-}
-
-code, pre, kbd, samp {
-  font-family: var(--font-mono);
-}
-
-.brand {
-  font-family: var(--font-brand);
-}
-
-.brand__r {
-  color: var(--color-red);
-}
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Prevent background scrolling while a dialog is open */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Keeps the footer at the bottom on short pages */
 #root {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -47,25 +46,43 @@ main {
   margin-inline: auto;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+.brand {
+  font-family: var(--font-brand);
+}
+
+.brand__r {
+  color: var(--color-red);
+}
+
+a {
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+/* Buttons are links too, they handle their own hover */
+a:not(.button):hover {
+  color: var(--color-accent);
 }
 
 .button {
   display: inline-flex;
   align-items: center;
+  min-height: 3rem;
   padding: 0.625rem 1.25rem;
   border: 1px solid transparent;
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  min-height: 3rem;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
 
 .button--primary {
   background: var(--color-accent);
   color: var(--color-bg);
+}
+
+.button--primary:hover {
+  background: color-mix(in oklch, var(--color-accent) 85%, white);
 }
 
 .button--secondary {
@@ -74,34 +91,8 @@ main {
 }
 
 .button--secondary:hover {
-  border-color: var(--color-text-muted);
-}
-
-.section {
-  margin-top: 5rem;
-}
-
-.section__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.eyebrow {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.section__more {
-  font-size: 0.875rem;
-  text-decoration: none;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .page-head {
@@ -116,11 +107,35 @@ main {
 }
 
 .page-head__intro {
-  margin: 0;
   max-width: 40rem;
+  margin: 0;
   color: var(--color-text-muted);
 }
 
-body:has(dialog[open]) {
-  overflow: hidden;
+.section {
+  margin-top: 5rem;
+}
+
+.section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section__more {
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+/* Small mono label above a section or page title */
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }

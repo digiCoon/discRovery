@@ -15,7 +15,7 @@ export default function LatestEntries() {
             <ul className="entry-cards">
                 {latestEntries.map((entry) => (
                     <li key={entry.slug} className="entry-card">
-                        <time className="entry-card__date" dateTime={entry.date.toISOString().slice(0, 10)}>
+                        <time className="entry-card__date" dateTime={entry.isoDate}>
                             {formatDate(entry.date)}
                         </time>
                         <h3 className="entry-card__title">{entry.title}</h3>

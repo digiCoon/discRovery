@@ -47,15 +47,21 @@
     padding: 0.875rem 0.25rem;
     border: none;
     background: none;
-    color: var(--color-text);
     font: inherit;
     text-align: left;
+    color: var(--color-text);
     cursor: pointer;
+    transition: color 0.15s;
 }
 
+.team__toggle:hover {
+    color: var(--color-accent);
+}
+
+/* Open state comes after hover so it wins */
 .team__toggle[aria-expanded='true'] {
     font-weight: 600;
-    color: var(--color-green);
+    color: var(--color-active);
 }
 
 /* Chevron drawn with two borders, rotates when open */
@@ -66,22 +72,22 @@
     border-right: 1.5px solid var(--color-text-muted);
     border-bottom: 1.5px solid var(--color-text-muted);
     transform: rotate(45deg);
-    transition: transform 0.2s;
+    transition: transform 0.2s, border-color 0.15s;
 }
 
-.team__toggle:hover .team__chevron,
-.team__toggle[aria-expanded='true'] .team__chevron {
-    border-color: var(--color-green);
+.team__toggle:hover .team__chevron {
+    border-color: var(--color-accent);
 }
 
 .team__toggle[aria-expanded='true'] .team__chevron {
+    border-color: var(--color-active);
     transform: rotate(-135deg);
 }
 
 .team__profile {
     margin: 0 0 1rem 0.75rem;
     padding-left: 1rem;
-    border-left: 2px solid var(--color-green);
+    border-left: 2px solid var(--color-active);
 }
 
 .team__label {
@@ -118,9 +124,8 @@
 .team__links a {
     color: var(--color-text-muted);
     text-decoration: none;
-    transition: color 0.15s;
 }
 
 .team__links a:hover {
-    color: var(--color-green);
+    color: var(--color-accent);
 }

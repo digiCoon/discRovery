@@ -32,9 +32,7 @@ export default function Logbook() {
                         <li key={entry.slug} className="timeline__item">
                             <article className="log-entry">
                                 <div className="log-entry__meta">
-                                    <time dateTime={entry.date.toISOString().slice(0, 10)}>
-                                        {formatDate(entry.date)}
-                                    </time>
+                                    <time dateTime={entry.isoDate}>{formatDate(entry.date)}</time>
                                     {entry.category && (
                                         <span className="log-entry__category">{entry.category}</span>
                                     )}

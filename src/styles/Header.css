@@ -11,11 +11,12 @@
     padding-block: 1rem;
 }
 
-.site-header .brand {
-    color: var(--color-text);
-    text-decoration: none;
+.site-header .brand,
+.site-header .brand:hover {
     font-size: 1.125rem;
     font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
 }
 
 .site-nav {
@@ -24,18 +25,18 @@
 }
 
 .site-nav a {
-    color: var(--color-text-muted);
-    text-decoration: none;
     padding-block: 0.25rem;
     border-bottom: 2px solid transparent;
+    color: var(--color-text-muted);
+    text-decoration: none;
 }
 
 .site-nav a:hover {
-    color: var(--color-text);
+    color: var(--color-accent);
 }
 
 /* NavLink sets aria-current="page" on the active link */
 .site-nav a[aria-current='page'] {
+    border-bottom-color: var(--color-active);
     color: var(--color-text);
-    border-bottom-color: var(--color-accent);
 }

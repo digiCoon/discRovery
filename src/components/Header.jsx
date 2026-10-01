@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router'
-import '../styles/Header.css'
 import BrandName from './BrandName.jsx'
+import '../styles/Header.css'
 
 export default function Header() {
     return (

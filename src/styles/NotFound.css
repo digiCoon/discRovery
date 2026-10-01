@@ -27,8 +27,8 @@
 }
 
 .not-found__text > p:not(.not-found__code) {
-    margin: 0 0 2rem;
     max-width: 30rem;
+    margin: 0 0 2rem;
     color: var(--color-text-muted);
 }
 

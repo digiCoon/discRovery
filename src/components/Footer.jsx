@@ -1,14 +1,6 @@
 import { Link } from 'react-router'
-import { FaLinkedin, FaInstagram, FaXTwitter } from 'react-icons/fa6'
-import '../styles/Footer.css'
 import SocialLinks from './SocialLinks.jsx'
-
-// Add the profile URL once the account exists; without URL the icon is shown as a placeholder
-const socials = [
-    { label: 'LinkedIn', url: '', Icon: FaLinkedin },
-    { label: 'Instagram', url: '', Icon: FaInstagram },
-    { label: 'X', url: '', Icon: FaXTwitter },
-]
+import '../styles/Footer.css'
 
 export default function Footer() {
     const year = new Date().getFullYear()

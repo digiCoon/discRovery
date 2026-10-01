@@ -30,9 +30,7 @@ export default function EntryModal({ entry, onClose }) {
                 <article className="entry-modal__content">
                     <header className="entry-modal__head">
                         <div className="entry-modal__meta">
-                            <time dateTime={entry.date.toISOString().slice(0, 10)}>
-                                {formatDate(entry.date)}
-                            </time>
+                            <time dateTime={entry.isoDate}>{formatDate(entry.date)}</time>
                             {entry.category && <span>{entry.category}</span>}
                         </div>
                         <button

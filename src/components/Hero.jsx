@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
-import '../styles/Hero.css'
 import BrandName from './BrandName.jsx'
-import heroImage from '../assets/images/hero.webp'
 import SocialLinks from './SocialLinks.jsx'
+import heroImage from '../assets/images/hero.webp'
+import '../styles/Hero.css'
 
 export default function Hero() {
     return (
@@ -22,14 +22,15 @@ export default function Hero() {
                     <Link to="/logbuch" className="button button--primary">Zum Logbuch</Link>
                     <Link to="/#team" className="button button--secondary">Das Team</Link>
                     <span className="hero__divider" aria-hidden="true" />
-                    <SocialLinks className="social-links--boxed" />
+                    <SocialLinks className="social-links--large" />
                 </div>
             </div>
 
+            {/* TODO: update alt text when the final hero image is in place */}
             <img
                 className="hero__image"
                 src={heroImage}
-                alt="Beschreibung, was auf dem Bild zu sehen ist"
+                alt="Der Rover auf einer Ausstellungsfläche"
                 fetchPriority="high"
             />
         </section>

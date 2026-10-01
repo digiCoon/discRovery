@@ -13,28 +13,20 @@
     color: var(--color-text-muted);
 }
 
-.social-links a {
-    transition: color 0.15s;
-}
-
 .social-links a:hover {
-    color: var(--color-green);
+    color: var(--color-accent);
 }
 
 /* Large variant: big icons, same height as the buttons */
-.social-links--boxed {
+.social-links--large {
     gap: 0.25rem;
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
-.social-links--boxed a,
-.social-links--boxed .social-links__placeholder {
+.social-links--large a,
+.social-links--large .social-links__placeholder {
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
-}
-
-.social-links--boxed a:hover {
-    border-color: var(--color-text-muted);
 }

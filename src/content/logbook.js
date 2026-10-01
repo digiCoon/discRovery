@@ -22,6 +22,14 @@ function parseFrontmatter(raw) {
     return { attributes, body: match[2].trim() }
 }
 
+export function formatDate(date) {
+    return date.toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    })
+}
+
 export const entries = Object.entries(files)
     .map(([path, raw]) => {
         const { attributes, body } = parseFrontmatter(raw)
@@ -31,6 +39,7 @@ export const entries = Object.entries(files)
             slug,
             title: attributes.title,
             date: new Date(attributes.date),
+            isoDate: attributes.date,
             category: attributes.category,
             teaser: attributes.teaser,
             image: attributes.image,
@@ -39,14 +48,12 @@ export const entries = Object.entries(files)
             body,
         }
     })
-    .sort((a, b) => b.date - a.date)
-
-export function formatDate(date) {
-    return date.toLocaleDateString('de-DE', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
+    // Skip entries with a missing or invalid date instead of crashing the page
+    .filter((entry) => {
+        const isValid = !Number.isNaN(entry.date.getTime())
+        if (!isValid) console.warn(`Logbook entry "${entry.slug}" has an invalid date (expected YYYY-MM-DD)`)
+        return isValid
     })
-}
+    .sort((a, b) => b.date - a.date)
 
 export const latestEntries = entries.slice(0, 3)

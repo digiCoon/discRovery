@@ -10,12 +10,13 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen und Einrichtung des Hostings.',                funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen und Einrichtung des Hostings.',
+                funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
-                    { label: 'linkedin', url: 'https://www.linkedin.com/in/DEIN-PROFIL' },
-                    { label: 'xing', url: 'https://www.xing.com/profile/DEIN-PROFIL' },
+                    { label: 'linkedin', url: 'https://www.linkedin.com/in/jessica-ries/' },
+                    { label: 'xing', url: 'https://www.xing.com/profile/Jessica_Ries3' },
                 ],
             },
             { id: 'niklas-b', name: 'Niklas B.', tasks: 'Folgt.', funfact: '', links: [] },

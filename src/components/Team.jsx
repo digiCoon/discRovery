@@ -53,7 +53,7 @@ function Department({ department }) {
 
                                 {member.funfact && (
                                     <>
-                                        <h4 className="team__label">// Funfact</h4>
+                                        <h4 className="team__label">{'// Funfact'}</h4>
                                         <p>{member.funfact}</p>
                                     </>
                                 )}
