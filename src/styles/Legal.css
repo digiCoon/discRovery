@@ -1,0 +1,65 @@
+.legal {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 48rem;
+}
+
+.legal__card {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+}
+
+.legal__card h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.legal__card p {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.legal__card p:last-child {
+    margin-bottom: 0;
+}
+
+.credits {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.legal__card .credits__name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.credits__type {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.legal__card .credits__meta,
+.legal__card .credits__note {
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+}
+
+.legal__card .credits__note {
+    margin-top: 0.25rem;
+    font-style: italic;
+}
