@@ -1,0 +1,126 @@
+.team {
+    display: grid;
+    gap: 2.5rem;
+}
+
+@media (min-width: 48rem) {
+    .team {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 2rem;
+    }
+}
+
+.team__heading {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.team__symbol {
+    color: var(--color-green);
+}
+
+.team__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.team__member {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.team__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.875rem 0.25rem;
+    border: none;
+    background: none;
+    color: var(--color-text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.team__toggle[aria-expanded='true'] {
+    font-weight: 600;
+    color: var(--color-green);
+}
+
+/* Chevron drawn with two borders, rotates when open */
+.team__chevron {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.25rem;
+    border-right: 1.5px solid var(--color-text-muted);
+    border-bottom: 1.5px solid var(--color-text-muted);
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+}
+
+.team__toggle:hover .team__chevron,
+.team__toggle[aria-expanded='true'] .team__chevron {
+    border-color: var(--color-green);
+}
+
+.team__toggle[aria-expanded='true'] .team__chevron {
+    transform: rotate(-135deg);
+}
+
+.team__profile {
+    margin: 0 0 1rem 0.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-green);
+}
+
+.team__label {
+    margin: 1rem 0 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.team__label:first-child {
+    margin-top: 0;
+}
+
+.team__profile p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+}
+
+.team__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+}
+
+.team__links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.team__links a:hover {
+    color: var(--color-green);
+}
