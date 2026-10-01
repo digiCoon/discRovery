@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import '../styles/Hero.css'
 import BrandName from './BrandName.jsx'
+import heroImage from '../assets/images/hero.webp'
 
 export default function Hero() {
     return (
@@ -22,9 +23,12 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="hero__image" aria-hidden="true">
-                Hero-Bild folgt
-            </div>
+            <img
+                className="hero__image"
+                src={heroImage}
+                alt="Beschreibung, was auf dem Bild zu sehen ist"
+                fetchPriority="high"
+            />
         </section>
     )
 }

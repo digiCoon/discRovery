@@ -47,6 +47,13 @@ export default function EntryModal({ entry, onClose }) {
 
                     <h2 id="entry-modal-title">{entry.title}</h2>
 
+                    {entry.image && (
+                        <img className="entry-modal__media" src={entry.image} alt={entry.imageAlt ?? ''} />
+                    )}
+                    {entry.video && (
+                        <video className="entry-modal__media" src={entry.video} controls preload="metadata" />
+                    )}
+
                     <div className="prose">
                         <Markdown>{entry.body}</Markdown>
                     </div>

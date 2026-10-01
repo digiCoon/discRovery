@@ -63,3 +63,10 @@
     font-family: var(--font-mono);
     font-size: 0.875rem;
 }
+
+.hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}

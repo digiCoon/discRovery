@@ -33,6 +33,9 @@ export const entries = Object.entries(files)
             date: new Date(attributes.date),
             category: attributes.category,
             teaser: attributes.teaser,
+            image: attributes.image,
+            imageAlt: attributes.imageAlt,
+            video: attributes.video,
             body,
         }
     })
