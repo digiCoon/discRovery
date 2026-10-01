@@ -26,7 +26,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* TODO: update alt text when the final hero image is in place */}
             <img
                 className="hero__image"
                 src={heroImage}
