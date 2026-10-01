@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { FaLinkedin, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import '../styles/Footer.css'
+import SocialLinks from './SocialLinks.jsx'
 
 // Add the profile URL once the account exists; without URL the icon is shown as a placeholder
 const socials = [
@@ -18,21 +19,7 @@ export default function Footer() {
                 <p>© {year} DiscRovery</p>
 
                 <div className="site-footer__end">
-                    <ul className="footer-social">
-                        {socials.map(({ label, url, Icon }) => (
-                            <li key={label}>
-                                {url ? (
-                                    <a href={url} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                                        <Icon aria-hidden="true" />
-                                    </a>
-                                ) : (
-                                    <span className="footer-social__placeholder" title={`${label} folgt`}>
-                    <Icon aria-hidden="true" />
-                  </span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                    <SocialLinks />
 
                     <nav className="footer-nav" aria-label="Rechtliches">
                         <Link to="/impressum">Impressum &amp; Datenschutz</Link>

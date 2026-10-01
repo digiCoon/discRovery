@@ -70,3 +70,14 @@
     height: auto;
     border-radius: 1rem;
 }
+
+.hero__actions {
+    align-items: center;
+}
+
+.hero__divider {
+    width: 1px;
+    height: 1.75rem;
+    margin-inline: 0.25rem;
+    background: var(--color-border);
+}

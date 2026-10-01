@@ -7,7 +7,12 @@ body {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+a:not(.button):hover {
+  color: var(--color-green);
 }
 
 code, pre, kbd, samp {
@@ -55,6 +60,7 @@ main {
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
+  min-height: 3rem;
 }
 
 .button--primary {

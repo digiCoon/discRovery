@@ -1,0 +1,40 @@
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.125rem;
+}
+
+.social-links a,
+.social-links__placeholder {
+    display: flex;
+    color: var(--color-text-muted);
+}
+
+.social-links a {
+    transition: color 0.15s;
+}
+
+.social-links a:hover {
+    color: var(--color-green);
+}
+
+/* Large variant: big icons, same height as the buttons */
+.social-links--boxed {
+    gap: 0.25rem;
+    font-size: 1.75rem;
+}
+
+.social-links--boxed a,
+.social-links--boxed .social-links__placeholder {
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.social-links--boxed a:hover {
+    border-color: var(--color-text-muted);
+}
