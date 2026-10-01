@@ -40,3 +40,55 @@
     border-bottom-color: var(--color-active);
     color: var(--color-text);
 }
+
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.site-header .brand,
+.site-header .brand:hover {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.brand__logo {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.site-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.site-nav a {
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    color: var(--color-accent);
+}
+
+/* NavLink sets aria-current="page" on the active link */
+.site-nav a[aria-current='page'] {
+    border-bottom-color: var(--color-active);
+    color: var(--color-text);
+}
