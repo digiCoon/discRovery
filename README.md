@@ -1,6 +1,6 @@
 # DiscRovery — Project Website
 
-Project website and progress log for **DiscRovery**, an autonomous AI rover built by our class FI16-AESI (application development and system integration) during a five-week practical project at damago. We run the project as a simulated start-up, and this site is our public face. Built with React and Vite.
+Project website and progress log for **DiscRovery**, an autonomous AI rover built by our classes FI16-AE/SI (application development and system integration) during a five-week practical project at damago. We run the project as a simulated start-up, and this site is our public face. Built with React and Vite.
 
 🔗 **Live:** coming soon
 
