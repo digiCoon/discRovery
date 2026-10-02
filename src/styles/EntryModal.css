@@ -18,6 +18,11 @@
     padding: 1.5rem;
 }
 
+.entry-modal__day {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
 .entry-modal__head {
     display: flex;
     justify-content: space-between;
@@ -57,9 +62,12 @@
 
 .entry-modal__media {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 1.25rem;
+    max-height: min(50vh, 24rem);
+    margin: 1.5rem auto 0;
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
 }
 
@@ -80,8 +88,12 @@
 }
 
 .prose img {
+    display: block;
+    width: auto;
     max-width: 100%;
     height: auto;
+    max-height: min(40vh, 18rem);
+    margin: 1.5rem auto;
     border-radius: 0.5rem;
 }
 

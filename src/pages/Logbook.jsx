@@ -17,10 +17,11 @@ export default function Logbook() {
     return (
         <>
             <header className="page-head">
-                <p className="eyebrow">Fortschritt</p>
+                <p className="eyebrow">Blick in die Black Box</p>
                 <h1>Logbuch</h1>
                 <p className="page-head__intro">
-                    Was wir gebaut, gelernt und verworfen haben, der neueste Eintrag zuerst.
+                    Aufgezeichnet, was läuft. Und was nicht. Vom ersten Kick-off bis zur letzten Challenge. <br />
+                    Live dabei ... Verzögerungen inbegriffen.
                 </p>
             </header>
 
