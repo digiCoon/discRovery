@@ -35,7 +35,6 @@ export default function Challenges() {
                                 {String(index + 1).padStart(2, '0')} · {statusLabels[challenge.status]}
                             </p>
                             <h3 className="challenge__name">{challenge.title}</h3>
-                            <p className="challenge__description">{challenge.description}</p>
 
                             <p className="challenge__targets">
                                 <span className="challenge__sr-text">
@@ -49,6 +48,8 @@ export default function Challenges() {
                                     />
                                 ))}
                             </p>
+
+                            <p className="challenge__description">{challenge.description}</p>
                         </li>
                     ))}
                 </ol>
