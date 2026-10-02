@@ -40,7 +40,6 @@ export const entries = Object.entries(files)
             title: attributes.title,
             date: new Date(attributes.date),
             isoDate: attributes.date,
-            category: attributes.category,
             teaser: attributes.teaser,
             image: attributes.image,
             imageAlt: attributes.imageAlt,

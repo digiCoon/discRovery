@@ -29,16 +29,9 @@
 }
 
 .entry-card__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
     font-family: var(--font-mono);
     font-size: 0.8125rem;
     color: var(--color-text-muted);
-}
-
-.entry-card__category {
-    color: var(--color-text);
 }
 
 .entry-card__title {

@@ -31,7 +31,6 @@ export default function EntryModal({ entry, onClose }) {
                     <header className="entry-modal__head">
                         <div className="entry-modal__meta">
                             <time dateTime={entry.isoDate}>{formatDate(entry.date)}</time>
-                            {entry.category && <span>{entry.category}</span>}
                         </div>
                         <button
                             type="button"

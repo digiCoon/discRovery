@@ -33,9 +33,6 @@ export default function Logbook() {
                             <article className="log-entry">
                                 <div className="log-entry__meta">
                                     <time dateTime={entry.isoDate}>{formatDate(entry.date)}</time>
-                                    {entry.category && (
-                                        <span className="log-entry__category">{entry.category}</span>
-                                    )}
                                 </div>
                                 <h2 className="log-entry__title">
                                     <Link to={`?eintrag=${entry.slug}`} className="log-entry__link">
