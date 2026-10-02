@@ -41,7 +41,6 @@ Hosted on Cloudflare Pages. The site is fully static and uses only relative path
 ---
 title: First test drive
 date: 2026-10-01
-category: Rover
 teaser: The rover finds the green ball.
 image: /logbook/2026-10-01-test-drive.webp
 imageAlt: Rover stopping in front of the green ball
@@ -78,7 +77,6 @@ src/
  │    └── Team.jsx
  ├── content/
  │    ├── logbook/         one Markdown file per entry
- │    ├── credits.js       media credits for the legal page
  │    ├── logbook.js       reads and sorts all entries
  │    ├── socials.js
  │    └── team.js
