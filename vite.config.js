@@ -15,6 +15,16 @@ const blockedBots = [
   'PerplexityBot',
 ]
 
+// Replaces %SITE_URL% in index.html, e.g. for social media previews that need absolute URLs
+function siteUrlInHtml(siteUrl) {
+  return {
+    name: 'site-url-in-html',
+    transformIndexHtml(html) {
+      return html.replaceAll('%SITE_URL%', siteUrl)
+    },
+  }
+}
+
 // Writes robots.txt and sitemap.xml into the build, using the domain from SITE_URL
 function seoFiles(siteUrl) {
   return {
@@ -53,6 +63,6 @@ export default defineConfig(({ mode }) => {
   const siteUrl = (env.SITE_URL || 'https://discrovery.pages.dev').replace(/\/$/, '')
 
   return {
-    plugins: [react(), seoFiles(siteUrl)],
+    plugins: [react(), siteUrlInHtml(siteUrl), seoFiles(siteUrl)],
   }
 })
