@@ -13,10 +13,10 @@ export default function Hero() {
                     <span className="hero__claim">Autonom. Oder gar nicht.</span>
                 </h1>
                 <p>
-                    In fünf Wochen bringen wir einem Rover bei, Gesten und
-                    handgeschriebene Ziffern zu erkennen, farbige Kugeln zu finden und
-                    sie selbstständig anzufahren. Hier dokumentieren wir, wie es läuft,
-                    auch wenn es mal nicht läuft.
+                    In fünf Wochen bringen wir unserem Rover bei, Gesten und handgeschriebene Ziffern zu erkennen,
+                    farbige Kugeln zu finden und sie in fester Reihenfolge anzufahren. Ohne Fernsteuerung,
+                    ohne Schubsen.<br/>
+                    Nur wir, der Code und eine große Portion Optimismus (und Hoffnung).
                 </p>
                 <div className="hero__actions">
                     <Link to="/logbuch" className="button button--primary">Zum Logbuch</Link>
