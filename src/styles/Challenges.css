@@ -9,13 +9,29 @@
     position: relative;
 }
 
+.challenges__start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    text-align: center;
+    color: var(--color-active);
+    background: var(--color-bg);
+}
+
+/* Mobile: steps stacked, path runs vertically on the left from the start marker down to the finish flag */
 .challenges__list {
     margin: 0;
-    padding: 0;
+    padding: 2.5rem 0 0;
     list-style: none;
 }
 
-/* Mobile: steps stacked, path runs vertically on the left down to the finish flag */
 .challenge {
     position: relative;
     padding: 0 0 2.5rem 2.5rem;
@@ -42,6 +58,7 @@
     background: var(--color-active);
 }
 
+/* Line from this point to the next one */
 .challenge__line {
     position: absolute;
     top: 1.25rem;
@@ -51,9 +68,18 @@
     background: var(--color-border);
 }
 
-/* In progress: the first half of the way to the next point is blue */
+/* Line from the start marker to the first point */
+.challenge__lead {
+    position: absolute;
+    top: -1.25rem;
+    left: calc(0.625rem - 1px);
+    width: 2px;
+    height: 1.25rem;
+    background: var(--color-border);
+}
+
 .challenge__line--active {
-    background: linear-gradient(to bottom, var(--color-accent) 50%, var(--color-border) 50%);
+    background: linear-gradient(to bottom, var(--color-accent) 66%, var(--color-border) 66%);
 }
 
 .challenge__line--done {
@@ -75,8 +101,7 @@
     color: var(--color-accent);
 }
 
-.challenge--done .challenge__status,
-.challenges__goal--done .challenge__status {
+.challenge--done .challenge__status {
     color: var(--color-active);
 }
 
@@ -120,7 +145,6 @@
 .challenges__goal {
     position: relative;
     min-height: 1.25rem;
-    padding-left: 2.5rem;
 }
 
 /* Flag is a bit larger than the dots and centred on the path */
@@ -148,35 +172,42 @@
     position: absolute;
     width: 1px;
     height: 1px;
+    margin: 0;
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
 }
 
-/* Desktop: steps side by side, one continuous path along the top ending in the finish flag on the right */
+/* Desktop: steps side by side, points centred above their column, one continuous path from start to flag */
 @media (min-width: 48rem) {
     .challenges__list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
+        padding: 0;
     }
 
     .challenge {
         padding: 2.5rem 0 0;
+        text-align: center;
     }
 
-    /* Each line runs from its dot to the next dot, across the gap between columns */
+    .challenge__dot {
+        left: calc(50% - 0.625rem);
+    }
+
+    /* From the centre of this column to the centre of the next one, across the gap */
     .challenge__line {
         top: calc(0.625rem - 1px);
         bottom: auto;
-        left: 1.25rem;
-        right: -2rem;
+        left: 50%;
+        right: calc(-50% - 2rem);
         width: auto;
         height: 2px;
     }
 
     .challenge__line--active {
-        background: linear-gradient(to right, var(--color-accent) 50%, var(--color-border) 50%);
+        background: linear-gradient(to right, var(--color-accent) 66%, var(--color-border) 66%);
     }
 
     /* The last line ends at the finish flag on the far right */
@@ -184,16 +215,39 @@
         right: 1.5rem;
     }
 
+    /* From the start marker to the centre of the first column */
+    .challenge__lead {
+        top: calc(0.625rem - 1px);
+        left: 1.25rem;
+        right: 50%;
+        width: auto;
+        height: 2px;
+    }
+
+    .challenge__targets {
+        justify-content: center;
+    }
+
+    .challenge__description {
+        margin-inline: auto;
+    }
+
     .challenges__goal {
         position: absolute;
         top: 0;
         right: 0;
-        padding: 2.5rem 0 0;
-        text-align: right;
     }
 
     .challenges__flag {
         left: auto;
         right: -0.125rem;
     }
+}
+
+.challenge__description {
+    max-width: 22rem;
+    margin: 0;
+    font-size: 0.9375rem;
+    white-space: pre-line;
+    color: var(--color-text-muted);
 }

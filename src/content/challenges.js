@@ -18,7 +18,7 @@ export const challenges = [
     {
         id: 'challenge-3',
         title: 'Code geknackt',
-        description: 'Ein gewürfelter Code, von Hand geschrieben. Falsch? Stillstand. Richtig? Rot, Grün, Blau.',
+        description: 'Ein gewürfelter Code, von Hand geschrieben.\nFalsch? Stillstand. Richtig? Rot, Grün, Blau.',
         targets: ['red', 'green', 'blue'],
         status: 'open',
     },

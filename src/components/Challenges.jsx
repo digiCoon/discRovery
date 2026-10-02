@@ -17,6 +17,14 @@ const targetLabels = {
 export default function Challenges() {
     const allDone = challenges.every((challenge) => challenge.status === 'done')
 
+    // The line after a point shows the way to the next point, so it takes the status of the next challenge.
+    // After the last point it leads to the finish flag.
+    function statusAfter(index) {
+        const next = challenges[index + 1]
+        if (next) return next.status
+        return allDone ? 'done' : 'open'
+    }
+
     return (
         <section className="section" aria-labelledby="challenges-title">
             <div className="section__head">
@@ -24,12 +32,23 @@ export default function Challenges() {
             </div>
 
             <div className="challenges">
+                {/* Start marker at the beginning of the path, always green because the project is running */}
+                <span className="challenges__start" aria-hidden="true">&gt;</span>
+
                 <ol className="challenges__list">
                     {challenges.map((challenge, index) => (
                         <li key={challenge.id} className={`challenge challenge--${challenge.status}`}>
+                            {index === 0 && (
+                                <span
+                                    className={`challenge__lead challenge__line--${challenge.status}`}
+                                    aria-hidden="true"
+                                />
+                            )}
                             <span className="challenge__dot" aria-hidden="true" />
-                            {/* Line to the next point: full green when done, half blue while in progress */}
-                            <span className={`challenge__line challenge__line--${challenge.status}`} aria-hidden="true" />
+                            <span
+                                className={`challenge__line challenge__line--${statusAfter(index)}`}
+                                aria-hidden="true"
+                            />
 
                             <p className="challenge__status">
                                 {String(index + 1).padStart(2, '0')} · {statusLabels[challenge.status]}
@@ -54,13 +73,13 @@ export default function Challenges() {
                     ))}
                 </ol>
 
-                {/* Finish flag at the end of the path, reached when all challenges are done */}
+                {/* Finish flag at the end of the path, turns green when all challenges are done */}
                 <div className={`challenges__goal ${allDone ? 'challenges__goal--done' : ''}`}>
                     <span className="challenges__flag" aria-hidden="true">
                         <FaFlagCheckered />
                     </span>
-                    <p className="challenge__status">
-                        {allDone ? 'Complete' : <span className="challenge__sr-text">Ziel noch nicht erreicht</span>}
+                    <p className="challenge__sr-text">
+                        {allDone ? 'Ziel erreicht' : 'Ziel noch nicht erreicht'}
                     </p>
                 </div>
             </div>
