@@ -29,7 +29,7 @@ export default function Hero() {
             <img
                 className="hero__image"
                 src={heroImage}
-                alt="Der Rover auf einer Ausstellungsfläche"
+                alt="Zwei DiscRovery-Rover vor dem DiscRovery-Logo"
                 fetchPriority="high"
             />
         </section>
