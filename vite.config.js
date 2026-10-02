@@ -59,7 +59,6 @@ function seoFiles(siteUrl) {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  // TODO: replace fallback with the real pages.dev address once the project exists
   const siteUrl = (env.SITE_URL || 'https://discrovery.pages.dev').replace(/\/$/, '')
 
   return {
