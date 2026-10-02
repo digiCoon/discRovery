@@ -52,27 +52,26 @@ function Department({ department }) {
                                 <dt className="team__label">{'> Mission'}</dt>
                                 <dd className="team__value">{member.tasks}</dd>
 
+                                {/* Links belong to the mission, so they need no label of their own */}
+                                {member.links.length > 0 && (
+                                    <dd className="team__value">
+                                        <ul className="team__links">
+                                            {member.links.map((link) => (
+                                                <li key={link.url}>
+                                                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                                        <span aria-hidden="true">→ </span>
+                                                        {link.label}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </dd>
+                                )}
+
                                 {member.funfact && (
                                     <>
                                         <dt className="team__label">{'// Funfact'}</dt>
                                         <dd className="team__value">{member.funfact}</dd>
-                                    </>
-                                )}
-
-                                {member.links.length > 0 && (
-                                    <>
-                                        <dt className="team__label">{'> Links'}</dt>
-                                        <dd className="team__value">
-                                            <ul className="team__links">
-                                                {member.links.map((link) => (
-                                                    <li key={link.url}>
-                                                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                                            → {link.label}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </dd>
                                     </>
                                 )}
                             </dl>
