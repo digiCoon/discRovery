@@ -47,32 +47,35 @@ function Department({ department }) {
                                 <span className="team__chevron" aria-hidden="true" />
                             </button>
 
-                            <div id={panelId} className="team__profile" hidden={!isOpen}>
-                                <h4 className="team__label">{'> Mission'}</h4>
-                                <p>{member.tasks}</p>
+                            {/* Label/value pairs, so the labels don't count as headings */}
+                            <dl id={panelId} className="team__profile" hidden={!isOpen}>
+                                <dt className="team__label">{'> Mission'}</dt>
+                                <dd className="team__value">{member.tasks}</dd>
 
                                 {member.funfact && (
                                     <>
-                                        <h4 className="team__label">{'// Funfact'}</h4>
-                                        <p>{member.funfact}</p>
+                                        <dt className="team__label">{'// Funfact'}</dt>
+                                        <dd className="team__value">{member.funfact}</dd>
                                     </>
                                 )}
 
                                 {member.links.length > 0 && (
                                     <>
-                                        <h4 className="team__label">{'> Links'}</h4>
-                                        <ul className="team__links">
-                                            {member.links.map((link) => (
-                                                <li key={link.url}>
-                                                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                                        → {link.label}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <dt className="team__label">{'> Links'}</dt>
+                                        <dd className="team__value">
+                                            <ul className="team__links">
+                                                {member.links.map((link) => (
+                                                    <li key={link.url}>
+                                                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                                            → {link.label}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </dd>
                                     </>
                                 )}
-                            </div>
+                            </dl>
                         </li>
                     )
                 })}

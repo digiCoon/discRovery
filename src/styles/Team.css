@@ -104,7 +104,7 @@
     margin-top: 0;
 }
 
-.team__profile p {
+.team__value {
     margin: 0;
     font-size: 0.9375rem;
     color: var(--color-text-muted);
