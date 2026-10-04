@@ -125,6 +125,16 @@ a:not(.button):hover {
   margin-bottom: 2rem;
 }
 
+/* Head followed by an intro: keep the intro close to the title */
+.section__head:has(+ .section__intro) {
+  margin-bottom: 0.75rem;
+}
+
+.section__intro {
+  margin: 0 0 2rem;
+  color: var(--color-text-muted);
+}
+
 .section__title {
   margin: 0;
   font-size: clamp(1.5rem, 3vw, 2rem);

@@ -30,6 +30,9 @@ export default function Challenges() {
             <div className="section__head">
                 <h2 id="challenges-title" className="challenges__title">Die Mission</h2>
             </div>
+            <p className="section__intro">
+                1&nbsp;×&nbsp;1&nbsp;Meter Feld, drei Kugeln, ein Rover. Wo die Kugeln liegen, wird nicht verraten. Und finden muss er sie ganz allein, ohne Wegbeschreibung oder Navi.
+            </p>
 
             <div className="challenges">
                 {/* Start marker at the beginning of the path, always green because the project is running */}
