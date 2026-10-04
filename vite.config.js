@@ -59,7 +59,7 @@ function seoFiles(siteUrl) {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const siteUrl = (env.SITE_URL || 'https://discrovery.pages.dev').replace(/\/$/, '')
+  const siteUrl = (env.SITE_URL || 'https://discrovery.de').replace(/\/$/, '')
 
   return {
     plugins: [react(), siteUrlInHtml(siteUrl), seoFiles(siteUrl)],
