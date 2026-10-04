@@ -6,7 +6,7 @@ export default function Team() {
     return (
         <section id="team" className="section" aria-labelledby="team-title">
             <div className="section__head">
-                <h2 id="team-title" className="eyebrow">Team</h2>
+                <h2 id="team-title" className="section__title">Das Team</h2>
             </div>
 
             <div className="team">

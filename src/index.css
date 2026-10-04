@@ -125,6 +125,13 @@ a:not(.button):hover {
   margin-bottom: 2rem;
 }
 
+.section__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
 .section__more {
   font-size: 0.875rem;
   text-decoration: none;
