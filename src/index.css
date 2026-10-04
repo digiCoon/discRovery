@@ -114,7 +114,7 @@ a:not(.button):hover {
 }
 
 .section {
-  margin-top: clamp(6rem, 12vw, 10rem);
+  margin-top: clamp(5rem, 9vw, 7rem);
 }
 
 .section__head {
