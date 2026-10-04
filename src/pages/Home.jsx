@@ -9,8 +9,8 @@ export default function Home() {
         <>
             <Hero />
             <Challenges />
-            <Plan />
             <LatestEntries />
+            <Plan />
             <Team />
         </>
     )
