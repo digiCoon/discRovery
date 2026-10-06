@@ -11,4 +11,6 @@ Für die Rover-Software gibt es einen Projektstrukturplan: Startsignal erkennen,
 
 ![Projektstrukturplan der Rover-Software mit fünf Bereichen: Startsignal erkennen, Kugel finden und anfahren, Ablauf steuern, Dokumentation und Tests.](/logbook/rover-software-psp.webp)
 
+Und zum ersten Mal geht es an den Rover selbst: Für die erste Teilaufgabe gibt es ein Aktivitätsdiagramm, und die Grundfunktionen wurden angetestet, vor allem die Kugel- und Farberkennung.
+
 Parallel ist ein Testkonzept entstanden, und unser Git-Repository wurde auf Sicherheit und Workflow abgeklopft. Bevor der erste Rover-Code eincheckt, soll klar sein, wie er geprüft wird.

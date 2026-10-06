@@ -15,14 +15,19 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen und Einrichtung des Hostings.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings und Projektstrukturplan der Rover-Software.',
                 funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
                 ],
             },
-            { id: 'niklas-b', name: 'Niklas B.', tasks: 'Folgt.', funfact: '', links: [] },
+            {
+                id: 'niklas-b',
+                name: 'Niklas B.',
+                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung.',
+                funfact: '',
+                links: [] },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
@@ -34,7 +39,7 @@ export const departments = [
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten automatisierten Pipeline.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten Pipeline. Dazu Testkonzept und Sicherheitsanalyse des Git-Repositorys.',
                 funfact: '',
                 links: [],
             },
@@ -48,14 +53,14 @@ export const departments = [
             {
                 id: 'kaan-b',
                 name: 'Kaan B.',
-                tasks: 'Einrichtung und Betreuung unseres X-Kanals.',
+                tasks: 'Einrichtung und Betreuung unseres X-Kanals, inklusive erstem Beitrag samt Bild.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung und Abstimmung mit dem übergeordneten Netz.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain.',
                 funfact: '',
                 links: [],
             },
@@ -70,7 +75,7 @@ export const departments = [
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team.',
                 funfact: '',
                 links: [],
             },
