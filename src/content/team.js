@@ -5,7 +5,6 @@ export const departments = [
         label: 'Anwendungsentwicklung',
         symbol: '</>',
         members: [
-            { id: 'stefanie-h', name: 'Stefanie H.', tasks: 'Folgt.', funfact: '', links: [] },
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
