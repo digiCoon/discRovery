@@ -15,7 +15,7 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings und Projektstrukturplan der Rover-Software.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen und Einrichtung des Hostings. Dazu der Projektstrukturplan der Rover-Software in drei Varianten samt Tool-Zuordnung.',
                 funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
@@ -25,9 +25,10 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung.',
+                tasks: 'Aktivitätsdiagramm für Challenge 1 und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung.',
                 funfact: '',
-                links: [] },
+                links: [],
+            },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
@@ -35,11 +36,17 @@ export const departments = [
                 funfact: '',
                 links: [],
             },
-            { id: 'alexander-m', name: 'Alexander M.', tasks: 'Folgt.', funfact: '', links: [] },
+            {
+                id: 'alexander-m',
+                name: 'Alexander M.',
+                tasks: 'Aktivitätsdiagramm für Challenge 2, von der Gestenerkennung bis zur Fahrt zu Rot und Blau.',
+                funfact: '',
+                links: [],
+            },
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten Pipeline. Dazu Testkonzept und Sicherheitsanalyse des Git-Repositorys.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten automatisierten Pipeline. Dazu Testkonzept, Analyse der Testfälle und Sicherheitsanalyse des Git-Repositorys.',
                 funfact: '',
                 links: [],
             },
@@ -71,7 +78,13 @@ export const departments = [
                 funfact: '',
                 links: [],
             },
-            { id: 'andrii-m', name: 'Andrii M.', tasks: 'Folgt.', funfact: '', links: [] },
+            {
+                id: 'andrii-m',
+                name: 'Andrii M.',
+                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben.',
+                funfact: '',
+                links: [],
+            },
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',

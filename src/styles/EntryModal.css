@@ -87,14 +87,58 @@
     font-size: 1.125rem;
 }
 
+/* Wrapper around each image in the text, carries the zoom badge */
+.prose__zoom {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    cursor: zoom-in;
+}
+
 .prose img {
     display: block;
     width: auto;
     max-width: 100%;
     height: auto;
     max-height: min(40vh, 18rem);
-    margin: 1.5rem auto;
     border-radius: 0.5rem;
+}
+
+/* Diagrams show their top part as a preview across the full width, the whole thing opens in the lightbox */
+.prose__zoom--diagram {
+    width: 100%;
+}
+
+.prose__zoom--diagram img {
+    width: 100%;
+    height: min(40vh, 18rem);
+    max-height: none;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--color-border);
+}
+
+/* Small magnifier in the corner, so it's visible without hovering that the image opens larger */
+.prose__zoom-badge {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    display: flex;
+    padding: 0.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    background: rgb(16 16 25 / 0.8);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    pointer-events: none;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.prose__zoom:hover .prose__zoom-badge {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .prose code {
