@@ -13,4 +13,6 @@ Für die Rover-Software gibt es einen Projektstrukturplan: Startsignal erkennen,
 
 Und zum ersten Mal geht es an den Rover selbst: Für die erste Teilaufgabe gibt es ein Aktivitätsdiagramm, und die Grundfunktionen wurden angetestet, vor allem die Kugel- und Farberkennung.
 
+![Drei Kunststoffkugeln in Rot, Grün und Blau, eingebettet in die Schaumstoffverpackung des Rover-Zubehörs, daneben ein Gamepad.](/logbook/kugeln-ausgepackt.webp)
+
 Parallel ist ein Testkonzept entstanden, und unser Git-Repository wurde auf Sicherheit und Workflow abgeklopft. Bevor der erste Rover-Code eincheckt, soll klar sein, wie er geprüft wird.
