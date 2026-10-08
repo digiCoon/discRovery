@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv } from 'vite'
 
 // Public pages for the sitemap; logbook entries open in a dialog and need no own entry
-const routes = ['/', '/logbuch', '/impressum']
+const routes = ['/', '/logbuch', '/impressum', '/spiel']
 
 // Crawlers that collect training data for AI models
 const blockedBots = [
