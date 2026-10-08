@@ -17,7 +17,7 @@ Unser selbst gehosteter Git-Server hat eine eigene Startseite bekommen. Mit klar
 
 ### ROVV-Y
 
-Der echte Rover fährt noch nicht selbst. Also haben wir ein Spiel gebaut, in dem ihr ans Steuer dürft: ROVV-Y, unsere Mars Navigation Challenge. Gebaut mit KI-Unterstützung, verfeinert von Hand. **Graf Zahl** oder **Ernie** wählen, mit W/A/S/D oder den Pfeiltasten durchs Gelände steuern, Kugeln einsammeln und die Batterie im Blick behalten. Hier ist ausnahmsweise mal nichts autonom, ihr fahrt selbst.
+Der echte Rover fährt noch nicht selbst. Also gibt es ein Spiel, in dem Menschen ans Steuer dürfen: ROVV-Y, unsere Mars Navigation Challenge. Gebaut mit KI-Unterstützung, verfeinert von Hand. **Graf Zahl** oder **Ernie** wählen, mit W/A/S/D oder den Pfeiltasten durchs Gelände steuern, Kugeln einsammeln und die Batterie im Blick behalten. Ausnahmsweise ist hier mal nichts autonom.
 
 Heute hat ROVV-Y den letzten Schliff bekommen und sieht jetzt aus wie der Rest dieser Seite. Spielbar ist es hier noch nicht, das folgt als Nächstes.
 
