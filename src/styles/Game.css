@@ -1,17 +1,297 @@
+/* Less space above the heading than on the other pages, the game should be visible right away */
+main:has(.game-page) {
+    padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.game-page .page-head {
+    margin-bottom: 2rem;
+}
+
+/* Intro runs across the full width on this page */
+.game-page .page-head__intro {
+    max-width: none;
+}
+
+/* Rules and value table side by side once there is room */
+/* Rules and value table in one light frame, side by side once there is room */
+.game-intro {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+}
+
+@media (min-width: 64rem) {
+    .game-intro {
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+    }
+
+    /* Rules stay compact and sit in the vertical middle next to the table */
+    .game-briefing {
+        align-content: center;
+    }
+}
+
+@media (min-width: 64rem) {
+    .game-intro {
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+    }
+
+    /* Rules spread over the height of the table: first line level with its head, last line with its last row */
+    .game-briefing {
+        align-content: space-between;
+    }
+}
+
+/* Short rules: one line each, label in front */
+.game-briefing {
+    display: grid;
+    gap: 0.375rem;
+    margin: 0;
+}
+
+.game-briefing__row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.game-briefing dt {
+    flex-shrink: 0;
+    width: 5.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-accent);
+}
+
+.game-briefing dd {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* Compact value table next to the rules */
+.game-rules {
+    justify-self: start;
+    align-self: start;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.game-rules thead th {
+    padding: 0 0.75rem 0.375rem;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: right;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.game-rules thead th:first-child {
+    text-align: left;
+}
+
+.game-rules tbody th,
+.game-rules td {
+    padding: 0.3rem 0.75rem;
+}
+
+.game-rules tbody tr:first-child > * {
+    padding-top: 0.5rem;
+}
+
+.game-rules__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Coloured dot in front of each object, same colours as in the game */
+.game-rules__item::before {
+    content: '';
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--item-color);
+}
+
+.item--green {
+    --item-color: #2ac71e;
+}
+
+.item--red {
+    --item-color: #ff2e2c;
+}
+
+.item--blue {
+    --item-color: #2d76ff;
+}
+
+.item--yellow {
+    --item-color: #facc15;
+}
+
+.game-rules__points,
+.game-rules__battery {
+    font-family: var(--font-mono);
+    text-align: right;
+}
+
+.game-rules__points {
+    color: var(--color-accent);
+}
+
+.game-rules__battery {
+    color: var(--color-text-muted);
+}
+
+.game-rules tr > :first-child {
+    padding-left: 0;
+}
+
+.game-rules tr > :last-child {
+    padding-right: 0;
+}
+
+/* Game and leaderboard stacked, side by side once there is room for both */
+.game {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+}
+
+@media (min-width: 64rem) {
+    .game {
+        grid-template-columns: 40rem 1fr;
+        align-items: start;
+        justify-items: stretch;
+    }
+}
+
+/* Fits the 600 × 600 game plus the frame's own padding */
 .game__frame {
     display: block;
     width: min(100%, 40rem);
-    height: 43rem;
-    margin: 0 auto;
+    height: 40rem;
     border: none;
     border-radius: 1rem;
     background: var(--color-bg);
 }
 
-.game__note {
+.leaderboard {
+    width: 100%;
+    max-width: 40rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+}
+
+@media (min-width: 64rem) {
+    .leaderboard {
+        max-width: none;
+        margin-top: 1.25rem;
+    }
+}
+
+.leaderboard__title {
+    margin: 0 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.leaderboard__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.leaderboard__table th {
+    padding: 0 0.5rem 0.625rem;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.leaderboard__table td {
+    padding: 0.625rem 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.leaderboard__table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard__table th:first-child,
+.leaderboard__rank {
+    width: 3.5rem;
+}
+
+.leaderboard__table th:last-child,
+.leaderboard__score {
+    text-align: right;
+}
+
+.leaderboard__rank {
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+}
+
+.rank--gold {
+    color: #facc15;
+}
+
+.rank--silver {
+    color: #cbd5e1;
+}
+
+.rank--bronze {
+    color: #cd7f32;
+}
+
+.leaderboard__name {
+    max-width: 0;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leaderboard__score {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+}
+
+.leaderboard__empty {
+    margin: 0;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+}
+
+.leaderboard__note {
     margin: 1rem 0 0;
-    font-size: 0.875rem;
-    text-align: center;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
 }
 
@@ -23,7 +303,8 @@
 }
 
 @media (max-width: 47.99rem) {
-    .game {
+    .game,
+    .game-rules {
         display: none;
     }
 

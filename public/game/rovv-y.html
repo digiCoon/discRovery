@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Rovv-Y - Mars Navigation Challenge</title>
+<title>ROVV-Y – Navigation Challenge</title>
 
 
 <style>
@@ -191,7 +191,7 @@ canvas {
 
     z-index: 20;
 
-    padding: 25px;
+    padding: 24px;
 
     text-align: center;
 }
@@ -234,7 +234,7 @@ canvas {
 
     margin-top: 0;
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
     color: #9c9fb8;
 
@@ -268,7 +268,7 @@ canvas {
 
     border-radius: 16px;
 
-    padding: 20px;
+    padding: 24px 24px 20px;
 }
 
 
@@ -319,7 +319,7 @@ input[type="text"] {
 
     font-size: 16px;
 
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 
     text-align: center;
 }
@@ -363,9 +363,9 @@ input[type="text"]:focus {
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 16px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 
@@ -557,41 +557,13 @@ button:active {
 
 
 /* =========================================================
-   LEADERBOARD
+   PLATZIERUNG (GAME OVER)
 ========================================================= */
 
-.leaderboard {
+.final-rank {
 
-    width:
-        min(430px, 95%);
-
-    margin-top:
-        15px;
-
-    background:
-        #0a0b12;
-
-    border-radius:
-        8px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid #2a2d42;
-}
-
-
-.leaderboard-header {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        45px 1fr 90px;
-
-    padding:
-        9px 12px;
+    margin:
+        0 0 18px;
 
     color:
         #9c9fb8;
@@ -600,125 +572,12 @@ button:active {
         'Geist Mono',
         ui-monospace,
         monospace;
-
-    font-size:
-        11px;
-
-    font-weight:
-        500;
-
-    letter-spacing:
-        0.08em;
-
-    text-transform:
-        uppercase;
-
-    border-bottom:
-        1px solid #2a2d42;
-}
-
-
-.leader-row {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        45px 1fr 90px;
-
-    padding:
-        9px 12px;
-
-    border-bottom:
-        1px solid #2a2d42;
 
     font-size:
         14px;
-}
 
-
-.leader-row:last-child {
-
-    border-bottom:
-        none;
-}
-
-
-.rank {
-
-    color:
-        #9c9fb8;
-}
-
-
-.player-name {
-
-    color:
-        #e4e4ee;
-
-    font-weight:
-        600;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
-
-    white-space:
-        nowrap;
-}
-
-
-.player-score {
-
-    text-align:
-        right;
-
-    color:
-        #2d76ff;
-
-    font-family:
-        'Geist Mono',
-        ui-monospace,
-        monospace;
-
-    font-weight:
-        500;
-}
-
-
-.rank-1 {
-
-    color:
-        #facc15;
-}
-
-
-.rank-2 {
-
-    color:
-        #cbd5e1;
-}
-
-
-.rank-3 {
-
-    color:
-        #cd7f32;
-}
-
-
-.empty-board {
-
-    padding:
-        15px;
-
-    color:
-        #9c9fb8;
-
-    font-size:
-        13px;
+    letter-spacing:
+        0.04em;
 }
 
 
@@ -729,7 +588,7 @@ button:active {
 .controls {
 
     margin-top:
-        10px;
+        16px;
 
     color:
         #9c9fb8;
@@ -747,6 +606,7 @@ button:active {
     color:
         #e4e4ee;
 }
+
 
 </style>
 
@@ -804,7 +664,7 @@ button:active {
 
     <div class="subtitle">
 
-        Mars Navigation Challenge
+        Navigation Challenge
 
     </div>
 
@@ -876,13 +736,19 @@ button:active {
         </button>
 
 
-    </div>
+        <div class="controls">
+
+            Steuerung:
+
+            <b>W/A/S/D</b>
+
+            oder
+
+            <b>Pfeiltasten</b>
+
+        </div>
 
 
-    <div
-        class="leaderboard"
-        id="menu-leaderboard"
-    >
     </div>
 
 
@@ -921,11 +787,11 @@ button:active {
     </div>
 
 
-    <div
-        class="leaderboard"
-        id="game-leaderboard"
+    <p
+        class="final-rank"
+        id="final-rank"
     >
-    </div>
+    </p>
 
 
     <button onclick="returnToMenu()">
@@ -954,21 +820,6 @@ button:active {
     height="600"
 ></canvas>
 
-
-</div>
-
-
-<div class="controls">
-
-    Steuerung:
-
-    <b>W/A/S/D</b>
-
-    oder
-
-    <b>Pfeiltasten</b>
-
-    zum Fahren.
 
 </div>
 
@@ -1073,6 +924,17 @@ let batteryPickups = [];
 */
 
 let lastBatteryThreshold = 100;
+
+
+/*
+   Batterie-Schwellen für Ladestationen in Prozent
+*/
+
+const BATTERY_THRESHOLDS = [
+    70,
+    40,
+    10
+];
 
 
 /* =========================================================
@@ -1880,14 +1742,15 @@ function checkBatteryPickupSpawn() {
 
 
     const threshold =
-        Math.floor(
-            battery / 30
-        ) * 30;
+        BATTERY_THRESHOLDS.find(
+            value =>
+                battery < value &&
+                value < lastBatteryThreshold
+        );
 
 
     if (
-        threshold <
-        lastBatteryThreshold
+        threshold !== undefined
     ) {
 
         spawnBatteryPickup();
@@ -3508,17 +3371,24 @@ function endGame(
         playerName;
 
 
-    saveHighscore(
-        playerName,
-        score
-    );
+    /*
+       Platzierung in der Bestenliste anzeigen.
+       Die Liste selbst steht auf der Webseite neben dem Spiel.
+    */
+
+    const placement =
+        saveHighscore(
+            playerName,
+            score
+        );
 
 
-    renderLeaderboard(
-        document.getElementById(
-            "game-leaderboard"
-        )
-    );
+    document.getElementById(
+        "final-rank"
+    ).innerText =
+        placement
+            ? `Platz ${placement.rank} von ${placement.total}`
+            : "Nicht in den Top 10";
 
 
     gameOverEl.classList.remove(
@@ -3542,13 +3412,6 @@ function returnToMenu() {
 
     startMenuEl.classList.remove(
         "hidden"
-    );
-
-
-    renderLeaderboard(
-        document.getElementById(
-            "menu-leaderboard"
-        )
     );
 
 }
@@ -3586,7 +3449,7 @@ function saveHighscore(
     }
 
 
-    scores.push({
+    const entry = {
 
         name:
             name.substring(
@@ -3600,7 +3463,12 @@ function saveHighscore(
         date:
             Date.now()
 
-    });
+    };
+
+
+    scores.push(
+        entry
+    );
 
 
     scores.sort(
@@ -3624,199 +3492,24 @@ function saveHighscore(
         )
     );
 
-}
 
-
-/* =========================================================
-   HIGHSCORES LADEN
-========================================================= */
-
-function getHighscores() {
-
-
-    try {
-
-        return (
-            JSON.parse(
-                localStorage.getItem(
-                    "rovyYHighscores"
-                )
-            )
-            || []
-        );
-
-    }
-
-    catch {
-
-        return [];
-
-    }
-
-}
-
-
-/* =========================================================
-   LEADERBOARD
-========================================================= */
-
-function renderLeaderboard(
-    element
-) {
-
-
-    const scores =
-        getHighscores();
-
-
-    if (
-        scores.length === 0
-    ) {
-
-
-        element.innerHTML = `
-
-            <div class="empty-board">
-
-                Noch keine Mission
-                abgeschlossen.
-
-            </div>
-
-        `;
-
-
-        return;
-
-    }
-
-
-    let html = `
-
-        <div class="leaderboard-header">
-
-            <div>
-                Rang
-            </div>
-
-            <div>
-                Spieler
-            </div>
-
-            <div>
-                Punkte
-            </div>
-
-        </div>
-
-    `;
-
-
-    scores.forEach(
-        (entry, index) => {
-
-
-            const rank =
-                index + 1;
-
-
-            let rankClass =
-                "";
-
-
-            if (
-                rank === 1
-            )
-                rankClass =
-                    "rank-1";
-
-
-            if (
-                rank === 2
-            )
-                rankClass =
-                    "rank-2";
-
-
-            if (
-                rank === 3
-            )
-                rankClass =
-                    "rank-3";
-
-
-            html += `
-
-                <div
-                    class="leader-row"
-                >
-
-                    <div
-                        class="rank ${rankClass}"
-                    >
-
-                        ${
-                            rank === 1
-                            ? "🏆"
-                            : rank
-                        }
-
-                    </div>
-
-
-                    <div
-                        class="player-name"
-                    >
-
-                        ${escapeHtml(
-                            entry.name
-                        )}
-
-                    </div>
-
-
-                    <div
-                        class="player-score"
-                    >
-
-                        ${entry.score}
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    element.innerHTML =
-        html;
-
-}
-
-
-/* =========================================================
-   HTML SICHER DARSTELLEN
-========================================================= */
-
-function escapeHtml(
-    text
-) {
-
-
-    const div =
-        document.createElement(
-            "div"
+    /*
+       Platzierung zurückgeben,
+       oder null, wenn der Lauf nicht in den Top 10 ist
+    */
+
+    const index =
+        scores.indexOf(
+            entry
         );
 
 
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
+    return index === -1
+        ? null
+        : {
+            rank: index + 1,
+            total: scores.length
+        };
 
 }
 
@@ -3885,16 +3578,6 @@ playerNameEl.addEventListener(
     }
 );
 
-
-/* =========================================================
-   MENÜ STARTEN
-========================================================= */
-
-renderLeaderboard(
-    document.getElementById(
-        "menu-leaderboard"
-    )
-);
 
 </script>
 
