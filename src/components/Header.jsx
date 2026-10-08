@@ -14,6 +14,7 @@ export default function Header() {
                 <nav className="site-nav" aria-label="Hauptnavigation">
                     <NavLink to="/" end>Home</NavLink>
                     <NavLink to="/logbuch">Logbuch</NavLink>
+                    <NavLink to="/spiel">Spiel</NavLink>
                 </nav>
             </div>
         </header>
