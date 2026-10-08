@@ -1,0 +1,3586 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>ROVV-Y – Navigation Challenge</title>
+
+
+<style>
+
+/* =========================================================
+   SCHRIFTEN (wie auf discrovery.de)
+========================================================= */
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible Next';
+    src: url('fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('fonts/GeistMono-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+
+/* =========================================================
+   GRUNDLAYOUT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    padding: 20px;
+
+    min-height: 100vh;
+
+    background:
+        #101019;
+
+    color: #e4e4ee;
+
+    font-family:
+        'Atkinson Hyperlegible Next',
+        system-ui,
+        sans-serif;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   GAME CONTAINER
+========================================================= */
+
+#game-container {
+
+    position: relative;
+
+    width: min(600px, 95vw);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid #2a2d42;
+}
+
+
+canvas {
+
+    background-color: #8c4728;
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+}
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+#ui {
+
+    position: absolute;
+
+    top: 10px;
+
+    left: 10px;
+
+    right: 10px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    font-family:
+        'Geist Mono',
+        ui-monospace,
+        monospace;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,0.9);
+
+    z-index: 10;
+}
+
+
+/*
+   Score und Batterie nur während des Spiels zeigen.
+   Im Startmenü und bei Game over liegen sie sonst
+   halb verdeckt hinter dem Overlay.
+*/
+
+#game-container:has(.overlay:not(.hidden)) #ui {
+
+    visibility: hidden;
+}
+
+
+.stat-box {
+
+    background:
+        rgba(16,16,25,0.85);
+
+    padding:
+        7px 12px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid #2a2d42;
+
+    backdrop-filter:
+        blur(4px);
+}
+
+
+/* =========================================================
+   OVERLAYS
+========================================================= */
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(16,16,25,0.95);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #e4e4ee;
+
+    z-index: 20;
+
+    padding: 24px;
+
+    text-align: center;
+}
+
+
+.overlay.hidden {
+
+    display: none !important;
+
+}
+
+
+/* =========================================================
+   TITEL
+========================================================= */
+
+.game-title {
+
+    margin:
+        0 0 5px 0;
+
+    font-size:
+        clamp(42px, 9vw, 68px);
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.02em;
+
+    color:
+        #e4e4ee;
+
+    text-transform:
+        uppercase;
+}
+
+
+.subtitle {
+
+    margin-top: 0;
+
+    margin-bottom: 28px;
+
+    color: #9c9fb8;
+
+    font-family:
+        'Geist Mono',
+        ui-monospace,
+        monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-box {
+
+    width:
+        min(430px, 95%);
+
+    background:
+        #161826;
+
+    border:
+        1px solid #2a2d42;
+
+    border-radius: 16px;
+
+    padding: 24px 24px 20px;
+}
+
+
+.menu-label {
+
+    display: block;
+
+    text-align: left;
+
+    margin-bottom: 7px;
+
+    color: #e4e4ee;
+
+    font-family:
+        'Geist Mono',
+        ui-monospace,
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+input[type="text"] {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    border:
+        1px solid #2a2d42;
+
+    outline: none;
+
+    background:
+        #0a0b12;
+
+    color: #e4e4ee;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    margin-bottom: 22px;
+
+    text-align: center;
+}
+
+
+input[type="text"]:focus {
+
+    border-color:
+        #2d76ff;
+}
+
+
+/* =========================================================
+   ROVER FARBEN
+========================================================= */
+
+.color-title {
+
+    margin-bottom: 10px;
+
+    color: #e4e4ee;
+
+    font-family:
+        'Geist Mono',
+        ui-monospace,
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.color-options {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+}
+
+
+.color-choice {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    border:
+        3px solid transparent;
+
+    transition:
+        transform 0.15s,
+        border 0.15s,
+        box-shadow 0.15s;
+}
+
+
+.color-choice:hover {
+
+    transform:
+        scale(1.1);
+}
+
+
+.color-choice.selected {
+
+    border-color:
+        #e4e4ee;
+
+    transform:
+        scale(1.12);
+}
+
+
+.color-blue {
+
+    background:
+        #38bdf8;
+
+    color:
+        #38bdf8;
+}
+
+
+.color-red {
+
+    background:
+        #ef4444;
+
+    color:
+        #ef4444;
+}
+
+
+.color-green {
+
+    background:
+        #22c55e;
+
+    color:
+        #22c55e;
+}
+
+
+.color-gold {
+
+    background:
+        #eab308;
+
+    color:
+        #eab308;
+}
+
+
+.rover-option {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #e4e4ee;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+
+    margin-top: 10px;
+
+    padding:
+        11px 24px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    background:
+        #2d76ff;
+
+    border: 1px solid transparent;
+
+    border-radius: 8px;
+
+    color:
+        #101019;
+
+    font-weight:
+        600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        filter 0.15s;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.15);
+}
+
+
+button:active {
+
+    transform:
+        translateY(1px);
+}
+
+
+.secondary-button {
+
+    background:
+        transparent;
+
+    border-color:
+        #2a2d42;
+
+    color: #e4e4ee;
+}
+
+
+/* =========================================================
+   GAME OVER
+========================================================= */
+
+#game-over h2 {
+
+    margin:
+        5px 0;
+
+    color:
+        #e4e4ee;
+
+    font-size:
+        32px;
+}
+
+
+.final-score {
+
+    font-size:
+        22px;
+
+    margin:
+        5px 0 18px;
+}
+
+
+/* =========================================================
+   PLATZIERUNG (GAME OVER)
+========================================================= */
+
+.final-rank {
+
+    margin:
+        0 0 18px;
+
+    color:
+        #9c9fb8;
+
+    font-family:
+        'Geist Mono',
+        ui-monospace,
+        monospace;
+
+    font-size:
+        14px;
+
+    letter-spacing:
+        0.04em;
+}
+
+
+/* =========================================================
+   STEUERUNG
+========================================================= */
+
+.controls {
+
+    margin-top:
+        16px;
+
+    color:
+        #9c9fb8;
+
+    font-size:
+        13px;
+
+    text-align:
+        center;
+}
+
+
+.controls b {
+
+    color:
+        #e4e4ee;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="game-container">
+
+
+<!-- =====================================================
+     SPIEL UI
+====================================================== -->
+
+<div id="ui">
+
+    <div class="stat-box">
+
+        SCORE:
+        <span id="score">
+            0
+        </span>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        BATTERIE:
+        <span id="battery">
+            100
+        </span>%
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     STARTMENÜ
+====================================================== -->
+
+<div id="start-menu"
+     class="overlay">
+
+
+    <h1 class="game-title">
+
+        ROVV-Y
+
+    </h1>
+
+
+    <div class="subtitle">
+
+        Navigation Challenge
+
+    </div>
+
+
+    <div class="menu-box">
+
+
+        <label class="menu-label">
+
+            Spielername
+
+        </label>
+
+
+        <input
+            id="player-name"
+            type="text"
+            maxlength="16"
+            value=""
+            placeholder="Name eintippen"
+        >
+
+
+        <div class="color-title">
+
+            Rover
+
+        </div>
+
+
+        <div class="color-options">
+
+
+            <div class="rover-option">
+
+                <div
+                    class="color-choice selected"
+                    style="background: #8b5cf6; color: #8b5cf6;"
+                    data-color="#8b5cf6"
+                    title="Graf Zahl"
+                ></div>
+
+                <span>Graf Zahl</span>
+
+            </div>
+
+
+            <div class="rover-option">
+
+                <div
+                    class="color-choice"
+                    style="background: #f97316; color: #f97316;"
+                    data-color="#f97316"
+                    title="Ernie"
+                ></div>
+
+                <span>Ernie</span>
+
+            </div>
+
+
+        </div>
+
+
+        <button onclick="startGame()">
+
+            MISSION STARTEN
+
+        </button>
+
+
+        <div class="controls">
+
+            Steuerung:
+
+            <b>W/A/S/D</b>
+
+            oder
+
+            <b>Pfeiltasten</b>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     GAME OVER
+====================================================== -->
+
+<div id="game-over"
+     class="overlay hidden">
+
+
+    <h2 id="over-title">
+
+        MISSION BEENDET
+
+    </h2>
+
+
+    <div class="final-score">
+
+        <span id="final-player">
+            Gast
+        </span>
+
+        —
+
+        <span id="final-score">
+            0
+        </span>
+
+        Punkte
+
+    </div>
+
+
+    <p
+        class="final-rank"
+        id="final-rank"
+    >
+    </p>
+
+
+    <button onclick="returnToMenu()">
+
+        ZURÜCK ZUM MENÜ
+
+    </button>
+
+
+    <button
+        class="secondary-button"
+        onclick="startGame()"
+    >
+
+        NOCHMAL SPIELEN
+
+    </button>
+
+
+</div>
+
+
+<canvas
+    id="gameCanvas"
+    width="600"
+    height="600"
+></canvas>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   CANVAS
+========================================================= */
+
+const canvas =
+    document.getElementById(
+        "gameCanvas"
+    );
+
+
+const ctx =
+    canvas.getContext("2d");
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+const scoreEl =
+    document.getElementById(
+        "score"
+    );
+
+
+const batteryEl =
+    document.getElementById(
+        "battery"
+    );
+
+
+const gameOverEl =
+    document.getElementById(
+        "game-over"
+    );
+
+
+const startMenuEl =
+    document.getElementById(
+        "start-menu"
+    );
+
+
+const finalScoreEl =
+    document.getElementById(
+        "final-score"
+    );
+
+
+const finalPlayerEl =
+    document.getElementById(
+        "final-player"
+    );
+
+
+const playerNameEl =
+    document.getElementById(
+        "player-name"
+    );
+
+
+/* =========================================================
+   SPIELSTATUS
+========================================================= */
+
+let score = 0;
+
+let battery = 100;
+
+let gameOver = false;
+
+let animationFrame = null;
+
+let playerName = "Gast";
+
+let selectedRoverColor =
+    "#8b5cf6";
+
+
+/* =========================================================
+   OBJEKTE
+========================================================= */
+
+let items = [];
+
+let obstacles = [];
+
+let slowZones = [];
+
+let batteryPickups = [];
+
+
+/*
+   Speichert die letzte Batterie-Schwelle,
+   bei der eine Ladestation ausgelöst wurde.
+*/
+
+let lastBatteryThreshold = 100;
+
+
+/*
+   Batterie-Schwellen für Ladestationen in Prozent
+*/
+
+const BATTERY_THRESHOLDS = [
+    70,
+    40,
+    10
+];
+
+
+/* =========================================================
+   TASTATUR
+========================================================= */
+
+const keys = {};
+
+
+window.addEventListener(
+    "keydown",
+    event => {
+
+        keys[event.key] = true;
+
+
+        if (
+            [
+                "ArrowUp",
+                "ArrowDown",
+                "ArrowLeft",
+                "ArrowRight",
+                " "
+            ].includes(event.key)
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+
+window.addEventListener(
+    "keyup",
+    event => {
+
+        keys[event.key] = false;
+
+    }
+);
+
+
+/* =========================================================
+   ROVER
+========================================================= */
+
+const rover = {
+
+    x:
+        canvas.width / 2,
+
+    y:
+        canvas.height / 2,
+
+    size:
+        30,
+
+    angle:
+        0,
+
+    speed:
+        0,
+
+    maxSpeed:
+        3.5,
+
+    accel:
+        0.11,
+
+    friction:
+        0.965,
+
+    rotSpeed:
+        0.055,
+
+    color:
+        "#8b5cf6"
+
+};
+
+
+/* =========================================================
+   BALL-TYPEN
+========================================================= */
+
+const BALL_TYPES = [
+
+    {
+        type:
+            "red",
+
+        color:
+            "#FF2E2C",
+
+        points:
+            150,
+
+        batteryBonus:
+            5
+
+    },
+
+
+    {
+        type:
+            "green",
+
+        color:
+            "#2AC71E",
+
+        points:
+            100,
+
+        batteryBonus:
+            3
+
+    },
+
+
+    {
+        type:
+            "blue",
+
+        color:
+            "#2D76FF",
+
+        points:
+            200,
+
+        batteryBonus:
+            10
+
+    }
+
+];
+
+
+/* =========================================================
+   ZIELSENSOR
+========================================================= */
+
+/*
+   Kegel vor dem Rover, in dem Kugeln "erfasst" werden.
+   Reichweite in Pixeln, halber Öffnungswinkel im Bogenmaß.
+*/
+
+const SENSOR_RANGE = 120;
+
+const SENSOR_ANGLE = 0.45;
+
+
+function isInSensor(
+    x,
+    y
+) {
+
+    const dist =
+        Math.hypot(
+            x - rover.x,
+            y - rover.y
+        );
+
+
+    if (
+        dist > SENSOR_RANGE
+    ) {
+
+        return false;
+
+    }
+
+
+    const direction =
+        Math.atan2(
+            y - rover.y,
+            x - rover.x
+        );
+
+
+    const diff =
+        Math.atan2(
+            Math.sin(direction - rover.angle),
+            Math.cos(direction - rover.angle)
+        );
+
+
+    return Math.abs(diff) <= SENSOR_ANGLE;
+
+}
+
+
+/* =========================================================
+   ZUFALLSPOSITION
+========================================================= */
+
+function randomPosition(
+    margin = 35
+) {
+
+    return {
+
+        x:
+            Math.random() *
+            (
+                canvas.width -
+                margin * 2
+            ) +
+            margin,
+
+        y:
+            Math.random() *
+            (
+                canvas.height -
+                margin * 2
+            ) +
+            margin
+
+    };
+
+}
+
+
+/* =========================================================
+   SPIEL STARTEN
+========================================================= */
+
+function startGame() {
+
+
+    playerName =
+        playerNameEl.value.trim()
+        ||
+        "Gast";
+
+
+    rover.color =
+        selectedRoverColor;
+
+
+    score = 0;
+
+    battery = 100;
+
+    gameOver = false;
+
+
+    items = [];
+
+    obstacles = [];
+
+    slowZones = [];
+
+    batteryPickups = [];
+
+
+    lastBatteryThreshold =
+        100;
+
+
+    rover.x =
+        canvas.width / 2;
+
+    rover.y =
+        canvas.height / 2;
+
+    rover.speed =
+        0;
+
+    rover.angle =
+        0;
+
+
+    /* =====================================================
+       FELSEN
+    ====================================================== */
+
+    for (
+        let i = 0;
+        i < 8;
+        i++
+    ) {
+
+        spawnRock();
+
+    }
+
+
+    /* =====================================================
+       SLOW-ZONEN
+    ====================================================== */
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        spawnSlowZone();
+
+    }
+
+
+    /* =====================================================
+       ERSTE BÄLLE
+    ====================================================== */
+
+    for (
+        let i = 0;
+        i < 3;
+        i++
+    ) {
+
+        spawnBall();
+
+    }
+
+
+    scoreEl.innerText =
+        "0";
+
+    batteryEl.innerText =
+        "100";
+
+
+    startMenuEl.classList.add(
+        "hidden"
+    );
+
+
+    gameOverEl.classList.add(
+        "hidden"
+    );
+
+
+    if (animationFrame) {
+
+        cancelAnimationFrame(
+            animationFrame
+        );
+
+    }
+
+
+    animationFrame =
+        requestAnimationFrame(
+            gameLoop
+        );
+
+}
+
+
+/* =========================================================
+   FELS ERZEUGEN
+========================================================= */
+
+function spawnRock() {
+
+
+    let attempts = 0;
+
+
+    while (
+        attempts < 100
+    ) {
+
+        attempts++;
+
+
+        const pos =
+            randomPosition(45);
+
+
+        /*
+           Nicht direkt beim Rover
+        */
+
+        if (
+            Math.hypot(
+                pos.x - rover.x,
+                pos.y - rover.y
+            ) < 100
+        ) {
+
+            continue;
+
+        }
+
+
+        obstacles.push({
+
+            x:
+                pos.x,
+
+            y:
+                pos.y,
+
+            radius:
+                Math.random() *
+                12 +
+                14,
+
+            rotation:
+                Math.random() *
+                Math.PI *
+                2
+
+        });
+
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   SLOW-ZONE
+========================================================= */
+
+function spawnSlowZone() {
+
+
+    let attempts = 0;
+
+
+    while (
+        attempts < 100
+    ) {
+
+        attempts++;
+
+
+        const pos =
+            randomPosition(50);
+
+
+        /*
+           Nicht direkt beim Rover
+        */
+
+        if (
+            Math.hypot(
+                pos.x - rover.x,
+                pos.y - rover.y
+            ) < 80
+        ) {
+
+            continue;
+
+        }
+
+
+        slowZones.push({
+
+            x:
+                pos.x,
+
+            y:
+                pos.y,
+
+            radius:
+                Math.random() *
+                13 +
+                25
+
+        });
+
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   BALL ERZEUGEN
+========================================================= */
+
+function spawnBall() {
+
+
+    const data =
+        BALL_TYPES[
+            Math.floor(
+                Math.random() *
+                BALL_TYPES.length
+            )
+        ];
+
+
+    let attempts = 0;
+
+
+    while (
+        attempts < 100
+    ) {
+
+        attempts++;
+
+
+        const pos =
+            randomPosition(30);
+
+
+        /*
+           Nicht auf Felsen
+        */
+
+        let onRock =
+            false;
+
+
+        for (
+            const rock of obstacles
+        ) {
+
+            if (
+                Math.hypot(
+                    pos.x - rock.x,
+                    pos.y - rock.y
+                )
+                <
+                rock.radius + 15
+            ) {
+
+                onRock = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if (onRock)
+            continue;
+
+
+        /*
+           Nicht mitten in Slow-Zone
+        */
+
+        let inSlowZone =
+            false;
+
+
+        for (
+            const zone of slowZones
+        ) {
+
+            if (
+                Math.hypot(
+                    pos.x - zone.x,
+                    pos.y - zone.y
+                )
+                <
+                zone.radius + 10
+            ) {
+
+                inSlowZone = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if (inSlowZone)
+            continue;
+
+
+        items.push({
+
+            x:
+                pos.x,
+
+            y:
+                pos.y,
+
+            radius:
+                9,
+
+            type:
+                data.type,
+
+            color:
+                data.color,
+
+            points:
+                data.points,
+
+            batteryBonus:
+                data.batteryBonus,
+
+            pulse:
+                Math.random() *
+                Math.PI *
+                2
+
+        });
+
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   BATTERIE-LADUNG ERZEUGEN
+========================================================= */
+
+function spawnBatteryPickup() {
+
+
+    let attempts = 0;
+
+
+    while (
+        attempts < 100
+    ) {
+
+        attempts++;
+
+
+        const pos =
+            randomPosition(40);
+
+
+        /*
+           Nicht zu nah beim Rover
+        */
+
+        if (
+            Math.hypot(
+                pos.x - rover.x,
+                pos.y - rover.y
+            ) < 100
+        ) {
+
+            continue;
+
+        }
+
+
+        /*
+           NICHT AUF EINEM FELSEN
+        */
+
+        let onRock =
+            false;
+
+
+        for (
+            const rock of obstacles
+        ) {
+
+            const distance =
+                Math.hypot(
+                    pos.x - rock.x,
+                    pos.y - rock.y
+                );
+
+
+            if (
+                distance <
+                rock.radius + 25
+            ) {
+
+                onRock = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if (onRock)
+            continue;
+
+
+        /*
+           NICHT IN SLOW-ZONE
+        */
+
+        let inSlowZone =
+            false;
+
+
+        for (
+            const zone of slowZones
+        ) {
+
+            const distance =
+                Math.hypot(
+                    pos.x - zone.x,
+                    pos.y - zone.y
+                );
+
+
+            if (
+                distance <
+                zone.radius + 20
+            ) {
+
+                inSlowZone = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if (inSlowZone)
+            continue;
+
+
+        /*
+           Nicht direkt auf anderen Items
+        */
+
+        let onItem =
+            false;
+
+
+        for (
+            const item of items
+        ) {
+
+            if (
+                Math.hypot(
+                    pos.x - item.x,
+                    pos.y - item.y
+                ) < 35
+            ) {
+
+                onItem = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if (onItem)
+            continue;
+
+
+        /*
+           Sicheren Platz gefunden
+        */
+
+        batteryPickups.push({
+
+            x:
+                pos.x,
+
+            y:
+                pos.y,
+
+            radius:
+                11,
+
+            pulse:
+                Math.random() *
+                Math.PI *
+                2
+
+        });
+
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   BATTERIE-SCHWELLE
+========================================================= */
+
+function checkBatteryPickupSpawn() {
+
+
+    /*
+       Eine neue Ladestation,
+       wenn die Batterie unter:
+
+       70 %
+       40 %
+       10 %
+
+       fällt.
+    */
+
+
+    const threshold =
+        BATTERY_THRESHOLDS.find(
+            value =>
+                battery < value &&
+                value < lastBatteryThreshold
+        );
+
+
+    if (
+        threshold !== undefined
+    ) {
+
+        spawnBatteryPickup();
+
+
+        lastBatteryThreshold =
+            threshold;
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE
+========================================================= */
+
+function update() {
+
+
+    if (gameOver)
+        return;
+
+
+    /* =====================================================
+       SCHWIERIGKEIT
+    ====================================================== */
+
+    const difficulty =
+        1 +
+        score / 1000;
+
+
+    /* =====================================================
+       BATTERIE VERBRAUCH
+    ====================================================== */
+
+    const passiveDrain =
+        0.018 *
+        difficulty;
+
+
+    battery -=
+        passiveDrain;
+
+
+    /*
+       Fahren verbraucht zusätzlich
+    */
+
+    if (
+        keys["ArrowUp"] ||
+        keys["w"] ||
+        keys["W"]
+    ) {
+
+        battery -=
+            0.006 *
+            difficulty;
+
+    }
+
+
+    /*
+       Ladestation prüfen
+    */
+
+    checkBatteryPickupSpawn();
+
+
+    if (
+        battery <= 0
+    ) {
+
+        battery = 0;
+
+        endGame(
+            "BATTERIE LEER"
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       DREHUNG
+    ====================================================== */
+
+    if (
+        keys["ArrowLeft"] ||
+        keys["a"] ||
+        keys["A"]
+    ) {
+
+        rover.angle -=
+            rover.rotSpeed;
+
+    }
+
+
+    if (
+        keys["ArrowRight"] ||
+        keys["d"] ||
+        keys["D"]
+    ) {
+
+        rover.angle +=
+            rover.rotSpeed;
+
+    }
+
+
+    /* =====================================================
+       BESCHLEUNIGUNG
+    ====================================================== */
+
+    if (
+        keys["ArrowUp"] ||
+        keys["w"] ||
+        keys["W"]
+    ) {
+
+        rover.speed =
+            Math.min(
+                rover.speed +
+                rover.accel,
+                rover.maxSpeed
+            );
+
+    }
+
+    else if (
+        keys["ArrowDown"] ||
+        keys["s"] ||
+        keys["S"]
+    ) {
+
+        rover.speed =
+            Math.max(
+                rover.speed -
+                rover.accel,
+                -rover.maxSpeed / 2
+            );
+
+    }
+
+    else {
+
+        rover.speed *=
+            rover.friction;
+
+    }
+
+
+    /* =====================================================
+       SLOW-ZONE PRÜFEN
+    ====================================================== */
+
+    let inSlowZone =
+        false;
+
+
+    slowZones.forEach(
+        zone => {
+
+            const dist =
+                Math.hypot(
+                    rover.x -
+                    zone.x,
+
+                    rover.y -
+                    zone.y
+                );
+
+
+            if (
+                dist <
+                zone.radius +
+                rover.size / 2
+            ) {
+
+                inSlowZone =
+                    true;
+
+            }
+
+        }
+    );
+
+
+    if (inSlowZone) {
+
+        rover.speed *=
+            0.91;
+
+    }
+
+
+    /* =====================================================
+       BEWEGUNG
+    ====================================================== */
+
+    rover.x +=
+        Math.cos(
+            rover.angle
+        ) *
+        rover.speed;
+
+
+    rover.y +=
+        Math.sin(
+            rover.angle
+        ) *
+        rover.speed;
+
+
+    /* =====================================================
+       SPIELFELDRAND
+    ====================================================== */
+
+    if (
+        rover.x <
+        rover.size / 2
+        ||
+        rover.x >
+        canvas.width -
+        rover.size / 2
+    ) {
+
+        rover.x =
+            Math.max(
+                rover.size / 2,
+                Math.min(
+                    canvas.width -
+                    rover.size / 2,
+                    rover.x
+                )
+            );
+
+
+        rover.speed *=
+            -0.45;
+
+    }
+
+
+    if (
+        rover.y <
+        rover.size / 2
+        ||
+        rover.y >
+        canvas.height -
+        rover.size / 2
+    ) {
+
+        rover.y =
+            Math.max(
+                rover.size / 2,
+                Math.min(
+                    canvas.height -
+                    rover.size / 2,
+                    rover.y
+                )
+            );
+
+
+        rover.speed *=
+            -0.45;
+
+    }
+
+
+    /* =====================================================
+       FELS-KOLLISION
+    ====================================================== */
+
+    obstacles.forEach(
+        rock => {
+
+            const dist =
+                Math.hypot(
+                    rover.x -
+                    rock.x,
+
+                    rover.y -
+                    rock.y
+                );
+
+
+            const minDistance =
+                rover.size / 2 +
+                rock.radius;
+
+
+            if (
+                dist <
+                minDistance
+            ) {
+
+                const angle =
+                    Math.atan2(
+                        rover.y -
+                        rock.y,
+
+                        rover.x -
+                        rock.x
+                    );
+
+
+                rover.x =
+                    rock.x +
+                    Math.cos(angle) *
+                    minDistance;
+
+
+                rover.y =
+                    rock.y +
+                    Math.sin(angle) *
+                    minDistance;
+
+
+                rover.speed =
+                    -Math.abs(
+                        rover.speed
+                    ) *
+                    0.45;
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       BÄLLE EINSAMMELN
+    ====================================================== */
+
+    for (
+        let i =
+            items.length - 1;
+
+        i >= 0;
+
+        i--
+    ) {
+
+
+        const item =
+            items[i];
+
+
+        const dist =
+            Math.hypot(
+                rover.x -
+                item.x,
+
+                rover.y -
+                item.y
+            );
+
+
+        if (
+            dist <
+            rover.size / 2 +
+            item.radius
+        ) {
+
+
+            /*
+               PUNKTE
+            */
+
+            score +=
+                item.points;
+
+
+            /*
+               BATTERIE-BONUS
+
+               Rot:
+               +5
+
+               Grün:
+               +3
+
+               Blau:
+               +10
+            */
+
+            battery =
+                Math.min(
+                    100,
+                    battery +
+                    item.batteryBonus
+                );
+
+
+            /*
+               Ball entfernen
+            */
+
+            items.splice(
+                i,
+                1
+            );
+
+
+            /*
+               Neuen Ball erzeugen
+            */
+
+            spawnBall();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       BATTERIE-LADUNGEN EINSAMMELN
+    ====================================================== */
+
+    for (
+        let i =
+            batteryPickups.length - 1;
+
+        i >= 0;
+
+        i--
+    ) {
+
+
+        const batteryItem =
+            batteryPickups[i];
+
+
+        const dist =
+            Math.hypot(
+                rover.x -
+                batteryItem.x,
+
+                rover.y -
+                batteryItem.y
+            );
+
+
+        if (
+            dist <
+            rover.size / 2 +
+            batteryItem.radius
+        ) {
+
+
+            /*
+               +25 Prozentpunkte
+            */
+
+            battery =
+                Math.min(
+                    100,
+                    battery + 25
+                );
+
+
+            batteryPickups.splice(
+                i,
+                1
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       BALL-ANZAHL
+    ====================================================== */
+
+    const targetBalls =
+        Math.min(
+            3 +
+            Math.floor(
+                score / 500
+            ),
+
+            10
+        );
+
+
+    while (
+        items.length <
+        targetBalls
+    ) {
+
+        spawnBall();
+
+    }
+
+
+    /* =====================================================
+       UI
+    ====================================================== */
+
+    scoreEl.innerText =
+        score;
+
+
+    batteryEl.innerText =
+        Math.ceil(
+            battery
+        );
+
+}
+
+
+/* =========================================================
+   DRAW
+========================================================= */
+
+function draw() {
+
+
+    /* =====================================================
+       MARS BODEN
+    ====================================================== */
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+    gradient.addColorStop(
+        0,
+        "#a95832"
+    );
+
+
+    gradient.addColorStop(
+        0.5,
+        "#8c4728"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "#70351f"
+    );
+
+
+    ctx.fillStyle =
+        gradient;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /* =====================================================
+       MARS TEXTUR
+    ====================================================== */
+
+    ctx.globalAlpha =
+        0.12;
+
+
+    for (
+        let i = 0;
+        i < 120;
+        i++
+    ) {
+
+        const x =
+            (i * 97) %
+            canvas.width;
+
+
+        const y =
+            (i * 53) %
+            canvas.height;
+
+
+        const r =
+            (i % 4) +
+            1;
+
+
+        ctx.fillStyle =
+            i % 2
+                ? "#4f2417"
+                : "#d97752";
+
+
+        ctx.beginPath();
+
+
+        ctx.arc(
+            x,
+            y,
+            r,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctx.fill();
+
+    }
+
+
+    ctx.globalAlpha =
+        1;
+
+
+    /* =====================================================
+       SLOW-ZONEN
+    ====================================================== */
+
+    slowZones.forEach(
+        zone => {
+
+
+            const zoneGradient =
+                ctx.createRadialGradient(
+                    zone.x,
+                    zone.y,
+                    2,
+                    zone.x,
+                    zone.y,
+                    zone.radius
+                );
+
+
+            zoneGradient.addColorStop(
+                0,
+                "rgba(55,27,17,0.8)"
+            );
+
+
+            zoneGradient.addColorStop(
+                1,
+                "rgba(67,32,20,0.25)"
+            );
+
+
+            ctx.fillStyle =
+                zoneGradient;
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                zone.x,
+                zone.y,
+                zone.radius,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+
+            ctx.strokeStyle =
+                "rgba(30,15,10,0.35)";
+
+
+            ctx.lineWidth =
+                2;
+
+
+            for (
+                let i = 0;
+                i < 3;
+                i++
+            ) {
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    zone.x,
+                    zone.y,
+                    zone.radius -
+                    5 -
+                    i * 5,
+
+                    0,
+
+                    Math.PI * 1.5
+                );
+
+
+                ctx.stroke();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MARS STEINE
+    ====================================================== */
+
+    obstacles.forEach(
+        rock => {
+
+
+            ctx.save();
+
+
+            ctx.translate(
+                rock.x,
+                rock.y
+            );
+
+
+            ctx.rotate(
+                rock.rotation
+            );
+
+
+            /* Schatten */
+
+            ctx.fillStyle =
+                "rgba(0,0,0,0.28)";
+
+
+            ctx.beginPath();
+
+
+            ctx.ellipse(
+                3,
+                6,
+                rock.radius * 1.1,
+                rock.radius * 0.55,
+                0,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+
+            /* Stein */
+
+            const rockGradient =
+                ctx.createLinearGradient(
+                    -rock.radius,
+                    -rock.radius,
+                    rock.radius,
+                    rock.radius
+                );
+
+
+            rockGradient.addColorStop(
+                0,
+                "#795548"
+            );
+
+
+            rockGradient.addColorStop(
+                0.45,
+                "#4b3026"
+            );
+
+
+            rockGradient.addColorStop(
+                1,
+                "#241713"
+            );
+
+
+            ctx.fillStyle =
+                rockGradient;
+
+
+            const r =
+                rock.radius;
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                -r * 0.8,
+                -r * 0.2
+            );
+
+
+            ctx.lineTo(
+                -r * 0.45,
+                -r * 0.9
+            );
+
+
+            ctx.lineTo(
+                r * 0.35,
+                -r * 0.75
+            );
+
+
+            ctx.lineTo(
+                r * 0.9,
+                -r * 0.15
+            );
+
+
+            ctx.lineTo(
+                r * 0.65,
+                r * 0.65
+            );
+
+
+            ctx.lineTo(
+                -r * 0.25,
+                r * 0.9
+            );
+
+
+            ctx.lineTo(
+                -r * 0.9,
+                r * 0.4
+            );
+
+
+            ctx.closePath();
+
+
+            ctx.fill();
+
+
+            /* Highlight */
+
+            ctx.fillStyle =
+                "rgba(255,255,255,0.10)";
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                -r * 0.55,
+                -r * 0.25
+            );
+
+
+            ctx.lineTo(
+                -r * 0.25,
+                -r * 0.7
+            );
+
+
+            ctx.lineTo(
+                r * 0.25,
+                -r * 0.55
+            );
+
+
+            ctx.lineTo(
+                0,
+                -r * 0.1
+            );
+
+
+            ctx.closePath();
+
+
+            ctx.fill();
+
+
+            ctx.restore();
+
+        }
+    );
+
+
+    /* =====================================================
+       BATTERIE-LADUNGEN
+    ====================================================== */
+
+    batteryPickups.forEach(
+        item => {
+
+
+            item.pulse +=
+                0.06;
+
+
+            const pulse =
+                Math.sin(
+                    item.pulse
+                ) * 2;
+
+
+            /*
+               Glow
+            */
+
+            ctx.shadowBlur =
+                20 + pulse;
+
+
+            ctx.shadowColor =
+                "#facc15";
+
+
+            /*
+               Gelber Energie-Kern
+            */
+
+            ctx.fillStyle =
+                "#facc15";
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                item.x,
+                item.y,
+                item.radius +
+                pulse * 0.15,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+
+            ctx.shadowBlur =
+                0;
+
+
+            /*
+               Batteriesymbol
+            */
+
+            ctx.fillStyle =
+                "#422006";
+
+
+            ctx.fillRect(
+                item.x - 5,
+                item.y - 7,
+                10,
+                14
+            );
+
+
+            /*
+               Pluszeichen
+            */
+
+            ctx.fillStyle =
+                "#fff7ed";
+
+
+            ctx.fillRect(
+                item.x - 2,
+                item.y - 5,
+                4,
+                10
+            );
+
+
+            ctx.fillRect(
+                item.x - 5,
+                item.y - 2,
+                10,
+                4
+            );
+
+
+            /*
+               Batterie-Anschluss
+            */
+
+            ctx.fillStyle =
+                "#422006";
+
+
+            ctx.fillRect(
+                item.x - 2,
+                item.y - 10,
+                4,
+                3
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       BÄLLE
+    ====================================================== */
+
+    items.forEach(
+        item => {
+
+
+            item.pulse +=
+                0.05;
+
+
+            const pulse =
+                Math.sin(
+                    item.pulse
+                ) * 2;
+
+
+            ctx.shadowBlur =
+                18 + pulse;
+
+
+            ctx.shadowColor =
+                item.color;
+
+
+            ctx.fillStyle =
+                item.color;
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                item.x,
+                item.y,
+                item.radius +
+                pulse * 0.15,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+
+            ctx.shadowBlur =
+                0;
+
+
+            /*
+               Glanzpunkt
+            */
+
+            ctx.fillStyle =
+                "rgba(255,255,255,0.65)";
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                item.x - 3,
+                item.y - 3,
+                2.5,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+
+            /*
+               Ring, wenn der Zielsensor die Kugel erfasst
+            */
+
+            if (
+                isInSensor(
+                    item.x,
+                    item.y
+                )
+            ) {
+
+                ctx.strokeStyle =
+                    item.color;
+
+
+                ctx.lineWidth =
+                    2;
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    item.x,
+                    item.y,
+                    item.radius + 6,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.stroke();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ROVER
+    ====================================================== */
+
+    drawRover();
+
+}
+
+
+/* =========================================================
+   ROVER ZEICHNEN
+========================================================= */
+
+function drawRover() {
+
+
+    ctx.save();
+
+
+    ctx.translate(
+        rover.x,
+        rover.y
+    );
+
+
+    ctx.rotate(
+        rover.angle
+    );
+
+
+    const s =
+        rover.size;
+
+
+    /* =====================================================
+       ZIELSENSOR
+    ====================================================== */
+
+    const sensorGradient =
+        ctx.createRadialGradient(
+            0,
+            0,
+            s / 2,
+            0,
+            0,
+            SENSOR_RANGE
+        );
+
+
+    sensorGradient.addColorStop(
+        0,
+        "rgba(45,118,255,0.30)"
+    );
+
+
+    sensorGradient.addColorStop(
+        1,
+        "rgba(45,118,255,0)"
+    );
+
+
+    ctx.fillStyle =
+        sensorGradient;
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        0,
+        0
+    );
+
+
+    ctx.arc(
+        0,
+        0,
+        SENSOR_RANGE,
+        -SENSOR_ANGLE,
+        SENSOR_ANGLE
+    );
+
+
+    ctx.closePath();
+
+
+    ctx.fill();
+
+
+    /* =====================================================
+       RÄDER
+    ====================================================== */
+
+    function drawWheel(
+        x,
+        y
+    ) {
+
+
+        ctx.fillStyle =
+            "#111827";
+
+
+        ctx.fillRect(
+            x,
+            y,
+            8,
+            12
+        );
+
+
+        ctx.fillStyle =
+            "#475569";
+
+
+        ctx.fillRect(
+            x + 2,
+            y + 2,
+            4,
+            8
+        );
+
+    }
+
+
+    drawWheel(
+        -s / 2 - 2,
+        -s / 2
+    );
+
+
+    drawWheel(
+        s / 2 - 6,
+        -s / 2
+    );
+
+
+    drawWheel(
+        -s / 2 - 2,
+        s / 2 - 12
+    );
+
+
+    drawWheel(
+        s / 2 - 6,
+        s / 2 - 12
+    );
+
+
+    /* =====================================================
+       FAHRWERK
+    ====================================================== */
+
+    ctx.strokeStyle =
+        "#64748b";
+
+
+    ctx.lineWidth =
+        3;
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        -s * 0.6,
+        -s * 0.3
+    );
+
+
+    ctx.lineTo(
+        s * 0.6,
+        s * 0.3
+    );
+
+
+    ctx.moveTo(
+        -s * 0.6,
+        s * 0.3
+    );
+
+
+    ctx.lineTo(
+        s * 0.6,
+        -s * 0.3
+    );
+
+
+    ctx.stroke();
+
+
+    /* =====================================================
+       ROVER KÖRPER
+    ====================================================== */
+
+    const bodyGradient =
+        ctx.createLinearGradient(
+            -s / 2,
+            -s / 2,
+            s / 2,
+            s / 2
+        );
+
+
+    bodyGradient.addColorStop(
+        0,
+        rover.color
+    );
+
+
+    bodyGradient.addColorStop(
+        0.45,
+        rover.color
+    );
+
+
+    bodyGradient.addColorStop(
+        1,
+        "#0f172a"
+    );
+
+
+    ctx.fillStyle =
+        bodyGradient;
+
+
+    ctx.beginPath();
+
+
+    ctx.roundRect(
+        -s / 2,
+        -s / 2,
+        s,
+        s,
+        5
+    );
+
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+        "rgba(255,255,255,0.35)";
+
+
+    ctx.lineWidth =
+        1.5;
+
+
+    ctx.stroke();
+
+
+    /* =====================================================
+       SOLARPANEL
+    ====================================================== */
+
+    ctx.fillStyle =
+        "#172554";
+
+
+    ctx.fillRect(
+        -s * 0.3,
+        -s * 0.34,
+        s * 0.55,
+        s * 0.22
+    );
+
+
+    ctx.strokeStyle =
+        "#60a5fa";
+
+
+    ctx.lineWidth =
+        1;
+
+
+    for (
+        let i = 0;
+        i < 4;
+        i++
+    ) {
+
+
+        ctx.beginPath();
+
+
+        ctx.moveTo(
+            -s * 0.27 +
+            i * 4,
+            -s * 0.34
+        );
+
+
+        ctx.lineTo(
+            -s * 0.27 +
+            i * 4,
+            -s * 0.12
+        );
+
+
+        ctx.stroke();
+
+    }
+
+
+    /* =====================================================
+       COCKPIT
+    ====================================================== */
+
+    ctx.fillStyle =
+        "#0f172a";
+
+
+    ctx.beginPath();
+
+
+    ctx.arc(
+        -2,
+        2,
+        6,
+        0,
+        Math.PI * 2
+    );
+
+
+    ctx.fill();
+
+
+    ctx.fillStyle =
+        "#67e8f9";
+
+
+    ctx.beginPath();
+
+
+    ctx.arc(
+        -4,
+        0,
+        2,
+        0,
+        Math.PI * 2
+    );
+
+
+    ctx.fill();
+
+
+    /* =====================================================
+       ANTENNE
+    ====================================================== */
+
+    ctx.strokeStyle =
+        "#cbd5e1";
+
+
+    ctx.lineWidth =
+        1.5;
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        5,
+        -s / 2
+    );
+
+
+    ctx.lineTo(
+        9,
+        -s / 2 - 10
+    );
+
+
+    ctx.stroke();
+
+
+    ctx.fillStyle =
+        "#ef4444";
+
+
+    ctx.shadowBlur =
+        6;
+
+
+    ctx.shadowColor =
+        "#ef4444";
+
+
+    ctx.beginPath();
+
+
+    ctx.arc(
+        9,
+        -s / 2 - 10,
+        2.5,
+        0,
+        Math.PI * 2
+    );
+
+
+    ctx.fill();
+
+
+    ctx.shadowBlur =
+        0;
+
+
+    /* =====================================================
+       SCHEINWERFER
+    ====================================================== */
+
+    ctx.fillStyle =
+        "#fef9c3";
+
+
+    ctx.shadowBlur =
+        12;
+
+
+    ctx.shadowColor =
+        "#fff7a8";
+
+
+    ctx.beginPath();
+
+
+    ctx.arc(
+        s / 2 - 2,
+        -5,
+        3,
+        0,
+        Math.PI * 2
+    );
+
+
+    ctx.fill();
+
+
+    ctx.shadowBlur =
+        0;
+
+
+    ctx.restore();
+
+}
+
+
+/* =========================================================
+   GAME LOOP
+========================================================= */
+
+function gameLoop() {
+
+
+    update();
+
+    draw();
+
+
+    if (!gameOver) {
+
+        animationFrame =
+            requestAnimationFrame(
+                gameLoop
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   GAME OVER
+========================================================= */
+
+function endGame(
+    reason
+) {
+
+
+    if (gameOver)
+        return;
+
+
+    gameOver =
+        true;
+
+
+    document.getElementById(
+        "over-title"
+    ).innerText =
+        reason;
+
+
+    finalScoreEl.innerText =
+        score;
+
+
+    finalPlayerEl.innerText =
+        playerName;
+
+
+    /*
+       Platzierung in der Bestenliste anzeigen.
+       Die Liste selbst steht auf der Webseite neben dem Spiel.
+    */
+
+    const placement =
+        saveHighscore(
+            playerName,
+            score
+        );
+
+
+    document.getElementById(
+        "final-rank"
+    ).innerText =
+        placement
+            ? `Platz ${placement.rank} von ${placement.total}`
+            : "Nicht in den Top 10";
+
+
+    gameOverEl.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* =========================================================
+   ZURÜCK ZUM MENÜ
+========================================================= */
+
+function returnToMenu() {
+
+
+    gameOverEl.classList.add(
+        "hidden"
+    );
+
+
+    startMenuEl.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* =========================================================
+   HIGHSCORE SPEICHERN
+========================================================= */
+
+function saveHighscore(
+    name,
+    scoreValue
+) {
+
+
+    let scores = [];
+
+
+    try {
+
+        scores =
+            JSON.parse(
+                localStorage.getItem(
+                    "rovyYHighscores"
+                )
+            )
+            || [];
+
+    }
+
+    catch {
+
+        scores = [];
+
+    }
+
+
+    const entry = {
+
+        name:
+            name.substring(
+                0,
+                16
+            ),
+
+        score:
+            scoreValue,
+
+        date:
+            Date.now()
+
+    };
+
+
+    scores.push(
+        entry
+    );
+
+
+    scores.sort(
+        (a, b) =>
+            b.score -
+            a.score
+    );
+
+
+    scores =
+        scores.slice(
+            0,
+            10
+        );
+
+
+    localStorage.setItem(
+        "rovyYHighscores",
+        JSON.stringify(
+            scores
+        )
+    );
+
+
+    /*
+       Platzierung zurückgeben,
+       oder null, wenn der Lauf nicht in den Top 10 ist
+    */
+
+    const index =
+        scores.indexOf(
+            entry
+        );
+
+
+    return index === -1
+        ? null
+        : {
+            rank: index + 1,
+            total: scores.length
+        };
+
+}
+
+
+/* =========================================================
+   ROVER FARBAUSWAHL
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".color-choice"
+    )
+    .forEach(
+        choice => {
+
+
+            choice.addEventListener(
+                "click",
+                () => {
+
+
+                    document
+                        .querySelectorAll(
+                            ".color-choice"
+                        )
+                        .forEach(
+                            item =>
+                                item.classList.remove(
+                                    "selected"
+                                )
+                        );
+
+
+                    choice.classList.add(
+                        "selected"
+                    );
+
+
+                    selectedRoverColor =
+                        choice.dataset.color;
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   ENTER IM NAMENSFELD
+========================================================= */
+
+playerNameEl.addEventListener(
+    "keydown",
+    event => {
+
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            startGame();
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+
+</html>

@@ -3,6 +3,7 @@ import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import Logbook from './pages/Logbook.jsx'
 import Legal from './pages/Legal.jsx'
+import Game from './pages/Game.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
                 <Route index element={<Home />} />
                 <Route path="logbuch" element={<Logbook />} />
                 <Route path="impressum" element={<Legal />} />
+                <Route path="spiel" element={<Game />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
