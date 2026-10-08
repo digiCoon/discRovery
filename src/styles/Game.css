@@ -1,8 +1,3 @@
-/* Less space above the heading than on the other pages, the game should be visible right away */
-main:has(.game-page) {
-    padding-top: clamp(2rem, 4vw, 3rem);
-}
-
 .game-page .page-head {
     margin-bottom: 2rem;
 }
@@ -12,7 +7,6 @@ main:has(.game-page) {
     max-width: none;
 }
 
-/* Rules and value table side by side once there is room */
 /* Rules and value table in one light frame, side by side once there is room */
 .game-intro {
     display: grid;
@@ -32,18 +26,6 @@ main:has(.game-page) {
     /* Rules stay compact and sit in the vertical middle next to the table */
     .game-briefing {
         align-content: center;
-    }
-}
-
-@media (min-width: 64rem) {
-    .game-intro {
-        grid-template-columns: 1fr auto;
-        gap: 3rem;
-    }
-
-    /* Rules spread over the height of the table: first line level with its head, last line with its last row */
-    .game-briefing {
-        align-content: space-between;
     }
 }
 
