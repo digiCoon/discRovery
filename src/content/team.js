@@ -8,14 +8,14 @@ export const departments = [
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
-                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers.',
+                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen und Einrichtung des Hostings. Dazu der Projektstrukturplan der Rover-Software in drei Varianten samt Tool-Zuordnung.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y.',
                 funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
@@ -25,7 +25,7 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Aktivitätsdiagramm für Challenge 1 und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung.',
+                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung.',
                 funfact: '',
                 links: [],
             },
@@ -39,14 +39,14 @@ export const departments = [
             {
                 id: 'alexander-m',
                 name: 'Alexander M.',
-                tasks: 'Aktivitätsdiagramm für Challenge 2, von der Gestenerkennung bis zur Fahrt zu Rot und Blau.',
+                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten automatisierten Pipeline. Dazu Testkonzept, Analyse der Testfälle und Sicherheitsanalyse des Git-Repositorys.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur ersten Pipeline. Dazu Testkonzept, Testfälle und Sicherheitsanalyse des Git-Repositorys.',
                 funfact: '',
                 links: [],
             },
@@ -67,7 +67,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten und verschlüsselte interne Verbindungen.',
                 funfact: '',
                 links: [],
             },
@@ -81,7 +81,7 @@ export const departments = [
             {
                 id: 'andrii-m',
                 name: 'Andrii M.',
-                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben.',
+                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, getestet in isolierter Umgebung vor der Freigabe.',
                 funfact: '',
                 links: [],
             },
@@ -95,7 +95,7 @@ export const departments = [
             {
                 id: 'mert-y',
                 name: 'Mert Y.',
-                tasks: 'Einrichtung und Betreuung unseres Instagram-Kanals.',
+                tasks: 'Einrichtung und Betreuung unseres Instagram-Kanals. Dazu Entwicklung und Feinschliff unseres Spiels ROVV-Y.',
                 funfact: '',
                 links: [],
             },
