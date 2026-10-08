@@ -35,6 +35,8 @@ function seoFiles(siteUrl) {
         'User-agent: *',
         'Crawl-delay: 10',
         'Allow: /',
+        // The game file itself is only meant to be seen embedded in /spiel
+        'Disallow: /game/',
         `Sitemap: ${siteUrl}/sitemap.xml`,
         '',
         '# Block AI training crawlers',

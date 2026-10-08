@@ -13,7 +13,7 @@ export default function Hero() {
                     <span className="hero__claim">Autonom. Oder gar nicht.</span>
                 </h1>
                 <p>
-                    In fünf Wochen bringen wir unserem Rover bei, Gesten und handgeschriebene Ziffern zu erkennen,
+                    In fünf Wochen bringen wir unseren Rovern <b>Graf Zahl</b> und <b>Ernie</b> bei, Gesten und handgeschriebene Ziffern zu erkennen,
                     farbige Kugeln zu finden und sie in fester Reihenfolge anzufahren. Ohne Fernsteuerung,
                     ohne Schubsen.<br/>
                     Nur wir, der Code und eine große Portion Optimismus (und Hoffnung).
