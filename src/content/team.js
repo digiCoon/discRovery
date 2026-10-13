@@ -8,14 +8,15 @@ export const departments = [
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
-                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software und Mitarbeit am Klassendiagramm.',
+                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm sowie Konzeption der Dateischnittstelle und des Loggings.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite.',                funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite sowie die operative Einrichtung des Aufgabenboards.',
+                funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
@@ -31,7 +32,7 @@ export const departments = [
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Einrichtung und Betreuung unseres LinkedIn-Kanals. Dazu Mitarbeit am Klassendiagramm.',
+                tasks: 'Einrichtung und Betreuung unseres LinkedIn-Kanals. Dazu Mitarbeit am Klassendiagramm und Dokumentation des Ablaufs von Challenge 3.',
                 funfact: '',
                 links: [],
             },
@@ -66,7 +67,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten und verschlüsselte interne Verbindungen.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen und die Bereitstellung des Team-Chats.',
                 funfact: '',
                 links: [],
             },
@@ -87,7 +88,7 @@ export const departments = [
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst sowie Aufbau des Aufgabenboards samt Datenumzug.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug sowie der Dateiablage mit Anbindung an den Git-Server und dem ersten Teil des Backups.',
                 funfact: '',
                 links: [],
             },
