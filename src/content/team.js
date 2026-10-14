@@ -15,7 +15,7 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite sowie die operative Einrichtung des Aufgabenboards.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards, die Überarbeitung der Wiki-Doku samt Corporate Design und Mitarbeit am Klassendiagramm.',
                 funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
@@ -46,7 +46,7 @@ export const departments = [
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline. Dazu Testkonzept, Testfälle und Sicherheitsanalyse des Git-Repositorys.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys und Mitarbeit am Klassendiagramm.',
                 funfact: '',
                 links: [],
             },
@@ -67,7 +67,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen und die Bereitstellung des Team-Chats.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen sowie Bereitstellung des Team-Chats und Einführung fürs Team.',
                 funfact: '',
                 links: [],
             },
@@ -81,14 +81,14 @@ export const departments = [
             {
                 id: 'andrii-m',
                 name: 'Andrii M.',
-                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, erst in isolierter Umgebung getestet, dann auf dem Core-Server umgesetzt.',
+                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, erst in isolierter Umgebung getestet, dann auf dem Core-Server umgesetzt, sowie Überwachung aller Dienste mit Dashboards für die Server.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug sowie der Dateiablage mit Anbindung an den Git-Server und dem ersten Teil des Backups.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server sowie der Backups für alle Dienste.',
                 funfact: '',
                 links: [],
             },
