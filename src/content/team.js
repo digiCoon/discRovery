@@ -8,7 +8,7 @@ export const departments = [
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
-                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm sowie Konzeption der Dateischnittstelle und des Loggings.',
+                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm, Konzeption der Dateischnittstelle und des Loggings sowie Entwicklung der Basisklasse für alle Challenges.',
                 funfact: '',
                 links: [],
             },
@@ -25,14 +25,14 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm.',
+                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm und Planung der Kugelerkennung samt Farbkalibrierung.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Einrichtung und Betreuung unseres LinkedIn-Kanals. Dazu Mitarbeit am Klassendiagramm und Dokumentation des Ablaufs von Challenge 3.',
+                tasks: 'Einrichtung und Betreuung unseres LinkedIn-Kanals. Dazu Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 und Planung der Rover-Ansteuerung.',
                 funfact: '',
                 links: [],
             },
@@ -46,7 +46,7 @@ export const departments = [
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys und Mitarbeit am Klassendiagramm.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung sowie erste Testfahrten mit dem Rover.',
                 funfact: '',
                 links: [],
             },
@@ -67,7 +67,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen sowie Bereitstellung des Team-Chats und Einführung fürs Team.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team und die Prüfung des Pipeline-Runners für die Entwicklung.',
                 funfact: '',
                 links: [],
             },
@@ -88,7 +88,7 @@ export const departments = [
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server sowie der Backups für alle Dienste.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste und des Passwortmanagers samt getesteter Wiederherstellung.',
                 funfact: '',
                 links: [],
             },
