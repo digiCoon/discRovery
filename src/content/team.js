@@ -8,14 +8,14 @@ export const departments = [
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
-                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm, Konzeption der Dateischnittstelle und des Loggings, Entwicklung der Basisklasse für alle Challenges sowie Arbeit an der ersten Challenge.',
+                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm, Konzeption der Dateischnittstelle und des Loggings, Entwicklung der Basisklasse für alle Challenges sowie Arbeit an den ersten Challenges.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm sowie Planung und Betreuung der Social-Media-Kanäle.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-Klasse, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz.',
                 funfact: 'Hat mehr Browser-Tabs offen als der Rover Sensoren.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
@@ -25,21 +25,21 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm und Planung der Kugelerkennung samt Farbkalibrierung.',
+                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm sowie Planung und Arbeit an der Kugelerkennung samt Farbkalibrierung.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 und Planung der Rover-Ansteuerung.',
+                tasks: 'Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 sowie Planung und erstes Grundgerüst der Rover-Ansteuerung.',
                 funfact: '',
                 links: [],
             },
             {
                 id: 'alexander-m',
                 name: 'Alexander M.',
-                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm. Dazu Mitarbeit am Klassendiagramm und Programmierung der Konfiguration.',
+                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm. Dazu Mitarbeit am Klassendiagramm sowie Umsetzung und erste Tests der Konfiguration.',
                 funfact: '',
                 links: [],
             },
@@ -67,7 +67,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners sowie Unterstützung bei Social Media.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen und Hilfsskripte sowie Unterstützung bei Social Media.',
                 funfact: '',
                 links: [],
             },
@@ -88,7 +88,7 @@ export const departments = [
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung. Dazu Unterstützung bei Social Media.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung. Dazu Unterstützung bei Social Media.',
                 funfact: '',
                 links: [],
             },
