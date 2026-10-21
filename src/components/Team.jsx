@@ -67,13 +67,6 @@ function Department({ department }) {
                                         </ul>
                                     </dd>
                                 )}
-
-                                {member.funfact && (
-                                    <>
-                                        <dt className="team__label">{'// Funfact'}</dt>
-                                        <dd className="team__value">{member.funfact}</dd>
-                                    </>
-                                )}
                             </dl>
                         </li>
                     )
