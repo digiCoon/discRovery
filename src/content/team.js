@@ -14,7 +14,7 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-Klasse samt Testumgebung, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-Klasse samt Testumgebung, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
@@ -35,13 +35,13 @@ export const departments = [
             {
                 id: 'alexander-m',
                 name: 'Alexander M.',
-                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm. Dazu Mitarbeit am Klassendiagramm sowie Umsetzung und erste Tests der Konfiguration.',
+                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm. Dazu Mitarbeit am Klassendiagramm sowie Umsetzung und Tests der Konfiguration bis zum Integrationstest.',
                 links: [],
             },
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover sowie Einrichtung der KI-Bibliothek und Tests der Gestenerkennung.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek sowie Tests der Gesten- und Kugelerkennung direkt am Rover.',
                 links: [],
             },
         ],
@@ -72,13 +72,13 @@ export const departments = [
             {
                 id: 'andrii-m',
                 name: 'Andrii M.',
-                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, erst in isolierter Umgebung getestet, dann auf dem Core-Server umgesetzt, sowie Überwachung aller Dienste mit verschlüsseltem Zugriff und Dashboards für Server, Webdienste und Container.',
+                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, erst in isolierter Umgebung getestet, dann auf dem Core-Server umgesetzt, sowie Überwachung aller Dienste mit verschlüsseltem Zugriff und Dashboards für Server, Webdienste und Container. Außerdem Arbeit am Zugriffsschutz für die Überwachung.',
                 links: [],
             },
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, Integritätsprüfung und Überwachung, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung. Dazu Unterstützung bei Social Media.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, Integritätsprüfung und Überwachung, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung sowie Absicherung der Wiederherstellung von Benutzern und Berechtigungen. Dazu Unterstützung bei Social Media.',
                 links: [],
             },
             {
