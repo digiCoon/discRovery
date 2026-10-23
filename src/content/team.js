@@ -14,7 +14,7 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-Klasse samt Testumgebung, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera- und der Audio-Klasse samt Tests, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
@@ -23,13 +23,13 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm sowie Entwicklung der Kugelerkennung samt Farbkalibrierung.',
+                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm, Entwicklung der Kugelerkennung samt Farbkalibrierung sowie Kalibrierung der Kamera für die Entfernungsmessung.',
                 links: [],
             },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 sowie Planung und Umsetzung der Grundfunktionen der Rover-Ansteuerung.',
+                tasks: 'Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 sowie Planung und Umsetzung der Grundfunktionen der Rover-Ansteuerung samt Geschwindigkeitssteuerung.',
                 links: [],
             },
             {
@@ -41,7 +41,7 @@ export const departments = [
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek sowie Tests der Gesten- und Kugelerkennung direkt am Rover.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek, Tests der Gesten- und Kugelerkennung direkt am Rover sowie Arbeit an der Ablaufsteuerung.',
                 links: [],
             },
         ],
@@ -60,7 +60,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen und Hilfsskripte sowie Unterstützung bei Social Media.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests, Support und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen, Hilfsskripte und lokale Serverüberwachung, Umsetzung der Infrastruktur-Anforderungen der Entwicklung, Dokumentation und Präsentationsvorbereitung sowie Unterstützung bei Social Media.',
                 links: [],
             },
             {
@@ -78,7 +78,7 @@ export const departments = [
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, Integritätsprüfung und Überwachung, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung sowie Absicherung der Wiederherstellung von Benutzern und Berechtigungen. Dazu Unterstützung bei Social Media.',
+                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, Integritätsprüfung, Überwachung und Fehleranalyse, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung sowie Vorbereitung der vollständigen Systemwiederherstellung. Dazu Unterstützung bei Social Media.',
                 links: [],
             },
             {
