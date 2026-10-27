@@ -14,7 +14,7 @@ export const departments = [
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera- und der Audio-Klasse samt Tests, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
+                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design und eigenem Kapitel zur Umsetzung, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-, Audio- und Not-Stopp-Klasse samt Tests, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
@@ -41,7 +41,7 @@ export const departments = [
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek, Tests der Gesten- und Kugelerkennung direkt am Rover sowie Arbeit an der Ablaufsteuerung.',
+                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek, Tests der Gesten- und Kugelerkennung direkt am Rover, Arbeit an der Ablaufsteuerung sowie Tests der Challenges am Rover.',
                 links: [],
             },
         ],
@@ -60,7 +60,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests, Support und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen, Hilfsskripte und lokale Serverüberwachung, Umsetzung der Infrastruktur-Anforderungen der Entwicklung, Dokumentation und Präsentationsvorbereitung sowie Unterstützung bei Social Media.',
+                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests, Support und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen, Hilfsskripte und lokale Serverüberwachung, Umsetzung der Infrastruktur-Anforderungen der Entwicklung, Dokumentation und Vorbereitung des Vortrags sowie Unterstützung bei Social Media.',
                 links: [],
             },
             {
