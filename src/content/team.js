@@ -29,7 +29,7 @@ export const departments = [
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Mitarbeit am Klassendiagramm, Dokumentation des Ablaufs von Challenge 3 sowie Planung und Umsetzung der Grundfunktionen der Rover-Ansteuerung samt Geschwindigkeitssteuerung.',
+                tasks: 'Aktivitätsdiagramm für Challenge 3 samt Dokumentation, Klassendiagramm für Challenge 3 und Mitarbeit am Gesamt-Klassendiagramm. Dazu Umsetzung der Rover-Ansteuerung samt Geschwindigkeitssteuerung, im Notebook getestet, der Test am Rover steht noch aus.',
                 links: [],
             },
             {
