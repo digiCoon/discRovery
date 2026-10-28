@@ -8,13 +8,13 @@ export const departments = [
             {
                 id: 'kseniia-k',
                 name: 'Kseniia K.',
-                tasks: 'Projektdokumentation im Wiki, internes Tageslog für das Team und Einarbeitung in Installation und Konfiguration des Git-Servers. Dazu Identifikation und Definition der Klassen für die Rover-Software, Mitarbeit am Klassendiagramm, Konzeption der Dateischnittstelle und des Loggings, Entwicklung der Basisklasse für alle Challenges, Arbeit an den Challenges und Erkennungsklassen sowie Tests für Challenges, Gesten- und Ziffernerkennung.',
+                tasks: 'Klassen der Rover-Software definiert und am Klassendiagramm mitgearbeitet. Basisklasse und Challenges entwickelt, Konzept für Dateischnittstelle und Logging, Tests für Challenges sowie Gesten- und Ziffernerkennung. Dazu Projektdokumentation im Wiki.',
                 links: [],
             },
             {
                 id: 'jessica-r',
                 name: 'Jessica R.',
-                tasks: 'Konzept, Design und Umsetzung der Projektwebseite, Pflege der Inhalte, Erstellung von Beiträgen, Einrichtung des Hostings sowie Projektstrukturplan und Tool-Zuordnung der Rover-Software. Außerdem Feinschliff am Spiel ROVV-Y und dessen Einbau in die Webseite, die operative Einrichtung des Aufgabenboards samt Aufgabenplanung entlang des Projektstrukturplans, die Überarbeitung der Wiki-Doku samt Corporate Design und eigenem Kapitel zur Umsetzung, Mitarbeit am Klassendiagramm und dessen Dokumentation im Wiki, Umsetzung der Kamera-, Audio- und Not-Stopp-Klasse samt Tests, Planung und Betreuung der Social-Media-Kanäle sowie Aufräumen des Git-Repositorys samt Anleitung zum Branch-Schutz und Git-Anleitung fürs Team.',
+                tasks: 'Öffentlichkeitsarbeit: Webseite samt Logbuch und Spiel ROVV-Y, Social Media, Wiki-Doku im Corporate Design. Projektplanung mit Strukturplan und Aufgabenboard. In der Software Kamera-, Audio- und Not-Stopp-Klasse samt Tests sowie Aufräumen des Git-Repositorys mit Anleitungen fürs Team.',
                 links: [
                     { label: 'portfolio', url: 'https://digicoon.de' },
                     { label: 'github', url: 'https://github.com/digiCoon' },
@@ -23,25 +23,25 @@ export const departments = [
             {
                 id: 'niklas-b',
                 name: 'Niklas B.',
-                tasks: 'Ablaufplanung der ersten Teilaufgabe und erste Schritte mit den Grundfunktionen des Rovers, vor allem Kugel- und Farberkennung. Dazu Mitarbeit am Klassendiagramm, Entwicklung der Kugelerkennung samt Farbkalibrierung sowie Kalibrierung der Kamera für die Entfernungsmessung.',
+                tasks: 'Kugelerkennung samt Farbkalibrierung entwickelt und die Kamera für eine genaue Entfernungsmessung kalibriert. Dazu Ablaufplanung der ersten Teilaufgabe und Mitarbeit am Klassendiagramm.',
                 links: [],
             },
             {
                 id: 'vahit-e',
                 name: 'Vahit E.',
-                tasks: 'Aktivitätsdiagramm für Challenge 3 samt Dokumentation, Klassendiagramm für Challenge 3 und Mitarbeit am Gesamt-Klassendiagramm. Dazu Umsetzung der Rover-Ansteuerung samt Geschwindigkeitssteuerung, im Notebook getestet, der Test am Rover steht noch aus.',
+                tasks: 'Aktivitäts- und Klassendiagramm für Challenge 3 samt Dokumentation. Rover-Ansteuerung mit Geschwindigkeitssteuerung umgesetzt und im Notebook getestet, der Test am Rover steht noch aus.',
                 links: [],
             },
             {
                 id: 'alexander-m',
                 name: 'Alexander M.',
-                tasks: 'Ablaufplanung von Challenge 2 als Aktivitätsdiagramm. Dazu Mitarbeit am Klassendiagramm sowie Umsetzung und Tests der Konfiguration bis zum Integrationstest.',
+                tasks: 'Konfiguration der Rover-Software umgesetzt, dokumentiert und mit einheitlichem Testframework bis zum Integrationstest geprüft. Dazu Aktivitätsdiagramm für Challenge 2 und Mitarbeit am Klassendiagramm.',
                 links: [],
             },
             {
                 id: 'christopher-w',
                 name: 'Christopher W.',
-                tasks: 'Konzept und Aufbau des Entwicklungs-Workflows, von der Test-VM bis zur CI-Pipeline samt Runner, in Abstimmung mit dem Infrastrukturteam. Dazu Testkonzept, Testfälle, Sicherheitsanalyse des Git-Repositorys, Mitarbeit am Klassendiagramm, Analyse von Ablaufsteuerung und Gestenerkennung, erste Testfahrten mit dem Rover, Einrichtung der KI-Bibliothek, Tests der Gesten- und Kugelerkennung direkt am Rover, Arbeit an der Ablaufsteuerung sowie Tests der Challenges am Rover.',
+                tasks: 'DevOps fürs Team: Entwicklungs-Workflow von der Test-VM bis zur CI-Pipeline, dazu Testkonzept und Sicherheitsanalyse des Repositorys. Am Rover Ablaufsteuerung, KI-Bibliothek und Tests von Gesten- und Kugelerkennung bis zur stabilen Erkennung.',
                 links: [],
             },
         ],
@@ -60,7 +60,7 @@ export const departments = [
             {
                 id: 'vincent-k',
                 name: 'Vincent K.',
-                tasks: 'Firewall, Core-Server und VPN: Installation, Einrichtung, Tests, Support und Abstimmung mit dem übergeordneten Netz. Außerdem der Umzug der Webseite auf die finale Domain, die Koordination der Infrastruktur-Arbeiten, verschlüsselte interne Verbindungen, Bereitstellung des Team-Chats samt Einführung fürs Team, Prüfung und Bereitstellung des Pipeline-Runners, Systemprüfungen, Hilfsskripte und lokale Serverüberwachung, Umsetzung der Infrastruktur-Anforderungen der Entwicklung, Dokumentation und Vorbereitung des Vortrags sowie Unterstützung bei Social Media.',
+                tasks: 'Firewall, Core-Server und VPN samt Support, Koordination der Infrastruktur und Bereitstellung von Team-Chat und Pipeline-Runner. Absicherung der Betriebsfähigkeit im Projektraum, Hilfe bei den Rover-Tests sowie Dokumentation und Vortrag.',
                 links: [],
             },
             {
@@ -72,19 +72,19 @@ export const departments = [
             {
                 id: 'andrii-m',
                 name: 'Andrii M.',
-                tasks: 'Installation und Konfiguration des Git-Servers samt Container-Umgebung und Firewall-Freigaben. Dazu Absicherung der Server-Zugänge, erst in isolierter Umgebung getestet, dann auf dem Core-Server umgesetzt, sowie Überwachung aller Dienste mit verschlüsseltem Zugriff und Dashboards für Server, Webdienste und Container. Außerdem Arbeit am Zugriffsschutz für die Überwachung.',
+                tasks: 'Container-Umgebung und Git-Server eingerichtet, Server-Zugänge per SSH gehärtet. Zentrales Monitoring für Server, Webdienste und Container mit eigenen Dashboards, verschlüsselt und mit strenger Anmeldung. Schwerpunkt: Skript zur Prüfung der Container-Images auf Aktualität.',
                 links: [],
             },
             {
                 id: 'thomas-s',
                 name: 'Thomas S.',
-                tasks: 'Fotos und Bildbearbeitung der Rover für Webseite und Social Media. Außerdem Einrichtung der SSH- und VPN-Zugänge fürs Team, Einrichtung der Rover selbst, Aufbau des Aufgabenboards samt Datenumzug, der Dateiablage mit Anbindung an den Git-Server, der Backups für alle Dienste samt automatischer Benachrichtigungen, Integritätsprüfung, Überwachung und Fehleranalyse, des Passwortmanagers samt getesteter Wiederherstellung und der zentralen Geräteverwaltung sowie Vorbereitung der vollständigen Systemwiederherstellung. Dazu Unterstützung bei Social Media.',
+                tasks: 'Backups für alle Dienste samt Überwachung, Integritätsprüfung und Wiederherstellung. Dazu Aufgabenboard, Dateiablage, Passwortmanager und Geräteverwaltung, Zugänge fürs Team, Einrichtung der Rover sowie Fotos und Unterstützung bei Social Media.',
                 links: [],
             },
             {
                 id: 'mert-y',
                 name: 'Mert Y.',
-                tasks: 'Einrichtung unseres Instagram-Kanals und erste Beiträge. Dazu Entwicklung und Feinschliff unseres Spiels ROVV-Y.',
+                tasks: 'Einrichtung unseres Instagram-Kanals und erste Beiträge. Dazu das Spiel ROVV-Y, umgesetzt mit KI-Unterstützung.',
                 links: [],
             },
         ],
