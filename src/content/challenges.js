@@ -20,6 +20,6 @@ export const challenges = [
         title: 'Code geknackt',
         description: 'Startsignal: ein Zahlencode, dreimal gewürfelt und von Hand aufs Papier gebracht. Der Rover liest per Kamera mit. Richtig? Rot, Grün, Blau. Falsch oder leeres Blatt? Keinen Millimeter.',
         targets: ['red', 'green', 'blue'],
-        status: 'active',
+        status: 'partial',
     },
 ]

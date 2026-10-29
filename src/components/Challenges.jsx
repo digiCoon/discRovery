@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import { FaFlagCheckered } from 'react-icons/fa6'
 import { challenges } from '../content/challenges.js'
+import { entries } from '../content/logbook.js'
+import EntryModal from './EntryModal.jsx'
 import '../styles/Challenges.css'
 
 const statusLabels = {
     done: 'Geschafft',
     active: 'In Arbeit',
     open: 'Offen',
+    partial: 'Teilweise geschafft',
 }
 
 const targetLabels = {
@@ -14,7 +18,12 @@ const targetLabels = {
     blue: 'blau',
 }
 
+// The newest logbook entry tells how the final run went
+const latestEntry = entries[0]
+
 export default function Challenges() {
+    // The closing entry opens right here, so nobody has to leave the start page
+    const [showResult, setShowResult] = useState(false)
     const allDone = challenges.every((challenge) => challenge.status === 'done')
 
     // The line after a point shows the way to the next point, so it takes the status of the next challenge.
@@ -72,6 +81,17 @@ export default function Challenges() {
                             </p>
 
                             <p className="challenge__description">{challenge.description}</p>
+
+                            {/* Below the text, so all three columns keep the same height up top */}
+                            {challenge.status === 'partial' && latestEntry && (
+                                <button
+                                    type="button"
+                                    className="challenge__result"
+                                    onClick={() => setShowResult(true)}
+                                >
+                                    Was passiert ist →
+                                </button>
+                            )}
                         </li>
                     ))}
                 </ol>
@@ -86,6 +106,8 @@ export default function Challenges() {
                     </p>
                 </div>
             </div>
+
+            <EntryModal entry={showResult ? latestEntry : null} onClose={() => setShowResult(false)} />
         </section>
     )
 }
