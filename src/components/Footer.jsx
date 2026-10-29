@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import SocialLinks from './SocialLinks.jsx'
 import damagoLogo from '../assets/images/damago_logo_weiss.webp'
 import '../styles/Footer.css'
 
@@ -15,8 +14,6 @@ export default function Footer() {
                     <p>© {year} DiscRovery</p>
 
                     <div className="site-footer__end">
-                        <SocialLinks />
-
                         <nav className="footer-nav" aria-label="Rechtliches">
                             <Link to="/impressum">Impressum &amp; Datenschutz</Link>
                         </nav>
